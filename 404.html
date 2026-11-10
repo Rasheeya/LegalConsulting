@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="404 — Page Outside Our Legal Brief. Stackly Legal &amp; Consulting.">
+  <title>404 — Outside Our Legal Brief | Stackly</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/error.css">
+</head>
+<body>
+
+  <div class="error-page-wrapper">
+    <div class="error-bg-glow"></div>
+
+    <header class="error-header container">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Legal &amp; Consulting">
+        <div class="brand-logo-wrap">
+          <img src="assets/logo.png" alt="Stackly" class="brand-logo-img">
+          <span class="brand-subtitle">Legal &amp; Consulting</span>
+        </div>
+      </a>
+    </header>
+
+    <main class="error-main-content">
+      <div class="error-illustration">
+        <i class="fa-solid fa-scale-unbalanced-flip"></i>
+      </div>
+
+      <div class="error-code">404</div>
+      <h1 class="error-title">This Page Is Outside Our Legal Brief.</h1>
+      <p class="error-desc">
+        The page you are looking for may have moved or is currently unavailable. Our advisory index can assist in directing you to our active service practices.
+      </p>
+
+      <div class="error-actions">
+        <a href="index.html" class="btn btn-primary" id="goHomeBtn">
+          <i class="fa-solid fa-house"></i> Go Home
+        </a>
+        <button id="errorBackBtn" class="btn btn-outline-gold" type="button">
+          <i class="fa-solid fa-arrow-left"></i> Go Back
+        </button>
+      </div>
+    </main>
+
+    <footer class="error-footer container">
+      &copy; 2026 Stackly Legal &amp; Consulting. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Safe Go Back Button
+      const backBtn = document.getElementById('errorBackBtn');
+      if (backBtn) {
+        backBtn.addEventListener('click', () => {
+          if (window.history.length > 1) {
+            window.history.back();
+          } else {
+            window.location.href = 'index.html';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

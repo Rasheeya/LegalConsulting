@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register for the Stackly Client &amp; Advisory Portal.">
+  <title>Create Your Account — Stackly Legal &amp; Consulting</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-backdrop"></div>
+    <div class="preloader-content">
+      <div class="preloader-emblem">
+        <div class="preloader-ring"></div>
+        <div class="preloader-ring-outer"></div>
+        <img src="assets/logo-icon.png" alt="Stackly" class="preloader-logo-icon">
+      </div>
+      <div class="preloader-brand">
+        <span class="preloader-brand-title">Stackly</span>
+        <span class="preloader-brand-sub">Client Registration</span>
+      </div>
+      <div class="preloader-progress">
+        <div class="preloader-progress-fill"></div>
+      </div>
+      <div class="preloader-status">Preparing Onboarding Portal...</div>
+    </div>
+  </div>
+  <script>
+    window.__preloaderStart = Date.now();
+    (function() {
+      var p = document.getElementById('preloader');
+      if (!p) return;
+      setTimeout(function() { if (p) p.classList.add('fade-out'); }, 1600);
+      setTimeout(function() {
+        if (p) {
+          p.style.display = 'none';
+          try { if (window.AOS) window.AOS.refresh(); } catch(e) {}
+        }
+      }, 2000);
+    })();
+  </script>
+
+  <div class="auth-wrapper">
+    <!-- Left Hero Visual Side -->
+    <div class="auth-visual">
+      <div class="auth-visual-media">
+        <img src="assets/auth-bg.webp" alt="Corporate Law Firm Library and Boardroom">
+      </div>
+      <div class="auth-visual-overlay"></div>
+
+      <div class="auth-visual-content">
+        <a href="index.html" class="auth-brand-logo" aria-label="Stackly Legal &amp; Consulting">
+          <div class="brand-logo-wrap">
+            <img src="assets/logo.png" alt="Stackly" class="brand-logo-img">
+            <span class="brand-subtitle">Legal &amp; Consulting</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="auth-quote-box">
+        <p class="auth-quote-text">
+          "Justice is the constant and perpetual will to render to each their due."
+        </p>
+        <div class="auth-quote-author">— Institutional Philosophy</div>
+      </div>
+
+      <div class="auth-visual-footer">
+        &copy; 2026 Stackly Demonstration Portal Interface.
+      </div>
+    </div>
+
+    <!-- Right Form Side -->
+    <div class="auth-form-side" data-aos="fade-left" data-aos-duration="750">
+      <div>
+        <div class="auth-top-nav">
+          <a href="index.html" class="back-home-link">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+          </a>
+          <span class="badge badge-demo">Demo Registration</span>
+        </div>
+
+        <div class="auth-header">
+          <h1 class="auth-title">Create Your Account</h1>
+          <p class="auth-subtitle">Register a simulated account to test the Client Portal or Administration Desk.</p>
+        </div>
+
+        <!-- Role Toggle: Admin / Client -->
+        <div class="role-toggle-group">
+          <button type="button" class="role-toggle-btn active" data-role="client">
+            <i class="fa-solid fa-user-tie"></i> Client Account
+          </button>
+          <button type="button" class="role-toggle-btn" data-role="admin">
+            <i class="fa-solid fa-user-shield"></i> Admin Access
+          </button>
+        </div>
+
+        <!-- Signup Form -->
+        <form id="signupForm" novalidate>
+          <input type="hidden" id="authRoleInput" value="client">
+
+          <div class="form-group">
+            <label class="form-label" for="signupName">Full Legal / Organization Name *</label>
+            <input type="text" id="signupName" class="form-control" placeholder="Enter your full name or entity name" required autocomplete="name">
+            <div class="form-error-msg"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="signupEmail">Corporate Email Address *</label>
+            <input type="email" id="signupEmail" class="form-control" placeholder="Enter your corporate email address" required autocomplete="email">
+            <div class="form-error-msg"></div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="signupPassword">Password *</label>
+              <div class="password-input-wrap">
+                <input type="password" id="signupPassword" class="form-control" placeholder="Create password (min 8 chars)" required autocomplete="new-password">
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+              <div class="form-error-msg"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="signupConfirmPassword">Confirm Password *</label>
+              <div class="password-input-wrap">
+                <input type="password" id="signupConfirmPassword" class="form-control" placeholder="Confirm your password" required autocomplete="new-password">
+                <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+              <div class="form-error-msg"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="remember-checkbox" style="align-items: flex-start;">
+              <input type="checkbox" id="signupTerms" style="margin-top: 4px;" required>
+              <span style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">
+                I understand this is a frontend-only simulation and acknowledge that no privileged legal advice or secure document custody is provided.
+              </span>
+            </label>
+            <div id="termsErrorMsg" class="form-error-msg" style="display: block;"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <i class="fa-solid fa-user-plus"></i> CREATE DEMO ACCOUNT
+          </button>
+        </form>
+
+        <div class="auth-bottom-switch">
+          Already Have an Account? <a href="Login.html">Login to Portal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

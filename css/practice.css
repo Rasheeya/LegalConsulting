@@ -1,0 +1,252 @@
+/* ==========================================================================
+   LEGAL & CONSULTING — PRACTICE AREAS STYLES (practice.css)
+   ========================================================================== */
+
+.practice-hero {
+  position: relative;
+  padding: calc(var(--header-height) + 60px) 0 60px;
+  background-color: var(--navy-dark);
+  color: var(--ivory);
+  text-align: center;
+  border-bottom: 2px solid var(--gold);
+}
+
+.search-filter-box {
+  max-width: 800px;
+  margin: 36px auto 0;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(176, 141, 87, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search-input-group {
+  position: relative;
+  width: 100%;
+}
+
+.search-input-group i {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+.search-input-group input {
+  width: 100%;
+  padding: 14px 18px 14px 48px;
+  background: var(--navy-dark);
+  border: 1px solid rgba(176, 141, 87, 0.4);
+  border-radius: 4px;
+  color: var(--ivory);
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.search-input-group input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(176, 141, 87, 0.2);
+}
+
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.pill-btn {
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--ivory-dark);
+  font-size: 0.78rem;
+  font-weight: 500;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pill-btn:hover,
+.pill-btn.active {
+  background: var(--gold);
+  color: var(--navy-dark);
+  border-color: var(--gold);
+}
+
+/* Practice Area Card */
+.practice-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.practice-dir-card {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+
+.practice-dir-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold-border);
+}
+
+.practice-dir-media {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.practice-dir-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.practice-dir-card:hover .practice-dir-media img {
+  transform: scale(1.06);
+}
+
+.practice-dir-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--navy-dark);
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--gold-border);
+}
+
+.practice-dir-body {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.practice-dir-title {
+  font-size: 1.6rem;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.practice-dir-overview {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.practice-dir-specs {
+  background: var(--ivory);
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  border-left: 3px solid var(--gold);
+}
+
+.practice-dir-specs h5 {
+  font-family: var(--font-primary);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--navy);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.practice-dir-specs ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.practice-dir-specs li {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.practice-dir-specs li i {
+  color: var(--gold);
+  font-size: 0.7rem;
+}
+
+.practice-dir-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+.no-results-msg {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+
+.no-results-msg i {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .practice-directory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .practice-directory-grid {
+    grid-template-columns: 1fr;
+  }
+  .search-filter-box {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 425px) {
+  .practice-hero {
+    padding: 100px 0 35px;
+  }
+  .practice-dir-body {
+    padding: 22px 16px;
+  }
+  .pill-btn {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .practice-hero .display-title {
+    font-size: 1.7rem !important;
+  }
+}

@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Strategic Legal Guidance & Confident Business Decisions. Professional legal advisory and corporate consulting solutions.">
+  <title>Stackly — Strategic Legal Guidance. Confident Business Decisions.</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- AOS Animation Library CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-backdrop"></div>
+    <div class="preloader-content">
+      <div class="preloader-emblem">
+        <div class="preloader-ring"></div>
+        <div class="preloader-ring-outer"></div>
+        <img src="assets/logo-icon.png" alt="Stackly" class="preloader-logo-icon">
+      </div>
+      <div class="preloader-brand">
+        <span class="preloader-brand-title">Stackly</span>
+        <span class="preloader-brand-sub">Legal &amp; Consulting</span>
+      </div>
+      <div class="preloader-progress">
+        <div class="preloader-progress-fill"></div>
+      </div>
+      <div class="preloader-status">Securing Legal Counsel...</div>
+    </div>
+  </div>
+  <script>
+    window.__preloaderStart = Date.now();
+    (function() {
+      var p = document.getElementById('preloader');
+      if (!p) return;
+      setTimeout(function() { if (p) p.classList.add('fade-out'); }, 1600);
+      setTimeout(function() {
+        if (p) {
+          p.style.display = 'none';
+          try { if (window.AOS) window.AOS.refresh(); } catch(e) {}
+        }
+      }, 2000);
+    })();
+  </script>
+
+  <!-- Common Navigation Bar -->
+  <header class="site-header">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Legal &amp; Consulting">
+        <div class="brand-logo-wrap">
+          <img src="assets/logo.png" alt="Stackly" class="brand-logo-img">
+          <span class="brand-subtitle">Legal &amp; Consulting</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Services.html" class="nav-link">Services</a>
+        <a href="Blog.html" class="nav-link">Blog</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="Login.html" class="nav-login-btn">
+          <i class="fa-regular fa-user"></i> Login
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Off-Canvas Drawer -->
+  <div class="mobile-nav-overlay"></div>
+  <aside class="mobile-nav" aria-label="Mobile Navigation">
+    <div class="mobile-menu-links">
+      <a href="index.html" class="mobile-nav-link active">Home <i class="fa-solid fa-angle-right"></i></a>
+      <a href="About.html" class="mobile-nav-link">About <i class="fa-solid fa-angle-right"></i></a>
+      <a href="Services.html" class="mobile-nav-link">Services <i class="fa-solid fa-angle-right"></i></a>
+      <a href="Blog.html" class="mobile-nav-link">Blog <i class="fa-solid fa-angle-right"></i></a>
+      <a href="Contact.html" class="mobile-nav-link">Contact <i class="fa-solid fa-angle-right"></i></a>
+    </div>
+    <div class="mobile-nav-actions">
+      <a href="Login.html" class="mobile-login-btn">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i> Client &amp; Admin Login
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==========================================
+         SECTION 1: HERO SECTION
+         ========================================== -->
+    <section class="hero-section">
+      <div class="hero-bg-media">
+        <img src="assets/hero-legal-office.webp" alt="High-end corporate law office boardroom">
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge-tag">
+            <i class="fa-solid fa-shield-halved"></i> Corporate Advisory &amp; Commercial Law
+          </div>
+          <h1 class="hero-title">
+            Strategic Legal Guidance. <span>Confident Business Decisions.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Professional legal advisory and business consulting solutions designed to protect your interests, strengthen your organization, and support your growth.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-open-modal="consultationModal">
+              <i class="fa-regular fa-calendar-days"></i> BOOK A CONSULTATION
+            </button>
+            <a href="404.html" class="btn btn-secondary" style="color: var(--ivory); border-color: rgba(255,255,255,0.4);">
+              <i class="fa-solid fa-compass"></i> EXPLORE OUR SERVICES
+            </a>
+          </div>
+        </div>
+
+        <!-- Floating Consultation Information Card -->
+        <div class="hero-floating-card">
+          <div class="card-top-tag">
+            <h3>Advisory Briefing</h3>
+            <span class="badge badge-gold">DEMO PORTAL</span>
+          </div>
+          <div class="hero-card-specs">
+            <div class="hero-spec-item">
+              <div class="spec-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+              <div class="spec-details">
+                <h5>Corporate Counsel</h5>
+                <p>Cross-border commercial law and corporate governance.</p>
+              </div>
+            </div>
+            <div class="hero-spec-item">
+              <div class="spec-icon"><i class="fa-solid fa-file-contract"></i></div>
+              <div class="spec-details">
+                <h5>Contract Precision</h5>
+                <p>Bespoke drafting, risk mitigation, and covenant analysis.</p>
+              </div>
+            </div>
+            <div class="hero-spec-item">
+              <div class="spec-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <div class="spec-details">
+                <h5>Strategic Growth</h5>
+                <p>Enterprise restructuring and regulatory compliance support.</p>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" style="width: 100%;" data-open-modal="consultationModal">
+            Request Case Assessment
+          </button>
+          <p class="hero-card-disclaimer">
+            <i class="fa-solid fa-circle-info"></i> Simulated demonstration interface. No confidential client data stored.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: INTRODUCTION
+         ========================================== -->
+    <section class="section section-ivory-light">
+      <div class="container intro-grid">
+        <div class="intro-image-wrapper" data-aos="fade-right" data-aos-duration="800">
+          <div class="intro-accent-frame"></div>
+          <img src="assets/law-consultation.webp" alt="Legal and consulting advisory session" class="intro-main-img">
+          <div class="intro-badge-stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Client Focus</div>
+          </div>
+        </div>
+        <div class="intro-content" data-aos="fade-left" data-aos-duration="800">
+          <span class="section-subtitle">FIRM OVERVIEW</span>
+          <h2 class="section-heading">Experience That Protects. Insight That Moves You Forward.</h2>
+          <p>
+            At Stackly, we combine rigorous legal analysis with senior-level commercial strategy. In an increasingly complex global marketplace, business leaders require more than transactional legal opinions—they need proactive, practical counsel aligned with strategic objectives.
+          </p>
+          <p>
+            Our consultative approach unifies corporate law, regulatory insight, risk mitigation, and operational structuring into a cohesive advisory framework. We empower organizations to navigate complex regulatory landscapes with absolute clarity.
+          </p>
+          <div class="intro-pillars">
+            <div class="intro-pillar-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Corporate Legal Strategy</span>
+            </div>
+            <div class="intro-pillar-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Commercial Contract Mastery</span>
+            </div>
+            <div class="intro-pillar-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Regulatory Alignment</span>
+            </div>
+            <div class="intro-pillar-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Business Architecture</span>
+            </div>
+          </div>
+          <a href="404.html" class="btn btn-secondary">
+            Learn More About Our Firm <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: OUR LEGAL SERVICES (9 Cards)
+         ========================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">PRACTICE CAPABILITIES</span>
+          <h2 class="section-heading">Our Legal Services</h2>
+          <p class="section-desc">
+            Comprehensive legal solutions delivered with technical depth, commercial pragmatism, and uncompromised discretion.
+          </p>
+        </div>
+
+        <div class="services-grid-3">
+          <!-- Card 1 -->
+          <div class="service-card">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-landmark"></i></div>
+              <h3 class="service-card-title">Corporate Legal Advisory</h3>
+              <p class="service-card-desc">
+                Boardroom counsel, corporate governance, joint ventures, and statutory compliance for domestic and multinational entities.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="service-card">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-briefcase"></i></div>
+              <h3 class="service-card-title">Business Law</h3>
+              <p class="service-card-desc">
+                Commercial transactions, partnership agreements, distribution networks, and daily trade operational legal advisory.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-card">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-file-signature"></i></div>
+              <h3 class="service-card-title">Contract Drafting and Review</h3>
+              <p class="service-card-desc">
+                Meticulous formulation of master service agreements, vendor deeds, licensing pacts, and restrictive covenants.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="service-card">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-users"></i></div>
+              <h3 class="service-card-title">Employment and Labour Law</h3>
+              <p class="service-card-desc">
+                Executive compensation frameworks, workplace policies, employment contracts, and labor standards adherence.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="service-card">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+              <h3 class="service-card-title">Intellectual Property</h3>
+              <p class="service-card-desc">
+                Trademark filing strategies, trade secret safeguarding, copyright protections, and proprietary technology licensing.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="service-card">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-building"></i></div>
+              <h3 class="service-card-title">Property and Real Estate Law</h3>
+              <p class="service-card-desc">
+                Commercial real estate lease structuring, title due diligence, property acquisitions, and zoning compliance.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="service-card">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-gavel"></i></div>
+              <h3 class="service-card-title">Dispute Resolution</h3>
+              <p class="service-card-desc">
+                Pre-litigation strategy, commercial mediation, contractual conflict mitigation, and binding arbitration advisory.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="service-card">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+              <h3 class="service-card-title">Legal Compliance</h3>
+              <p class="service-card-desc">
+                Corporate governance audits, statutory reporting compliance, anti-corruption frameworks, and data protection advisory.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Card 9 -->
+          <div class="service-card">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-registered"></i></div>
+              <h3 class="service-card-title">Company Registration Guidance</h3>
+              <p class="service-card-desc">
+                Entity incorporation architecture, articles of association, shareholder compacts, and statutory establishment guidance.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Learn More <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: BUSINESS CONSULTING SERVICES (8 Cards)
+         ========================================== -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">MANAGEMENT ADVISORY</span>
+          <h2 class="section-heading">Business Consulting Services</h2>
+          <p class="section-desc">
+            Transformative management consulting tailored to drive operational efficiency, capital stability, and sustainable market expansion.
+          </p>
+        </div>
+
+        <div class="services-grid-4">
+          <!-- Consulting 1 -->
+          <div class="service-card service-card-dark">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-chess"></i></div>
+              <h3 class="service-card-title">Business Strategy</h3>
+              <p class="service-card-desc">
+                Long-term corporate positioning, commercial vulnerability assessment, and strategic roadmaps.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Explore Area <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Consulting 2 -->
+          <div class="service-card service-card-dark">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-rocket"></i></div>
+              <h3 class="service-card-title">Startup Advisory</h3>
+              <p class="service-card-desc">
+                Cap table modeling, seed through series financing guidance, and early-stage governance formation.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Explore Area <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Consulting 3 -->
+          <div class="service-card service-card-dark">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-arrows-split-up-and-left"></i></div>
+              <h3 class="service-card-title">Corporate Restructuring</h3>
+              <p class="service-card-desc">
+                Reorganization of subsidiary holding architectures, asset divestitures, and debt recapitalization.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Explore Area <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Consulting 4 -->
+          <div class="service-card service-card-dark">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-shield-virus"></i></div>
+              <h3 class="service-card-title">Risk Management</h3>
+              <p class="service-card-desc">
+                Enterprise risk assessment matrices, operational resiliency planning, and supply chain exposure analysis.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Explore Area <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Consulting 5 -->
+          <div class="service-card service-card-dark">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-chart-pie"></i></div>
+              <h3 class="service-card-title">Financial &amp; Operational Advisory</h3>
+              <p class="service-card-desc">
+                Working capital efficiency review, financial reporting controls, and cost containment protocols.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Explore Area <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Consulting 6 -->
+          <div class="service-card service-card-dark">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-scale-unbalanced"></i></div>
+              <h3 class="service-card-title">Regulatory Consulting</h3>
+              <p class="service-card-desc">
+                Cross-jurisdictional compliance protocols, supervisory inquiries response, and ethical audits.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Explore Area <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Consulting 7 -->
+          <div class="service-card service-card-dark">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-gears"></i></div>
+              <h3 class="service-card-title">Process Optimization</h3>
+              <p class="service-card-desc">
+                Workflow digitization, organizational efficiency benchmarks, and streamlined delegation standards.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Explore Area <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+
+          <!-- Consulting 8 -->
+          <div class="service-card service-card-dark">
+            <div>
+              <div class="service-card-icon"><i class="fa-solid fa-globe"></i></div>
+              <h3 class="service-card-title">Market Entry Strategy</h3>
+              <p class="service-card-desc">
+                Jurisdictional feasibility audits, local entity selection, tax treaties analysis, and launch execution.
+              </p>
+            </div>
+            <a href="404.html" class="btn-link">Explore Area <i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: PRACTICE AREAS (8 Large Visual Tiles)
+         ========================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">SPECIALIZED DOMAINS</span>
+          <h2 class="section-heading">Featured Practice Areas</h2>
+          <p class="section-desc">
+            Explore our multidisciplinary fields of legal focus, each managed with specialized experience and rigorous attention to detail.
+          </p>
+        </div>
+
+        <div class="practice-tiles-grid">
+          <!-- Tile 1 -->
+          <div class="practice-tile" onclick="window.location.href='404.html'">
+            <div class="practice-tile-media">
+              <img src="assets/practice-corporate.webp" alt="Corporate Law Practice">
+            </div>
+            <div class="practice-tile-overlay"></div>
+            <div class="practice-tile-content">
+              <div class="practice-tile-tag">COMMERCIAL DOMAIN</div>
+              <h3 class="practice-tile-title">Corporate Law</h3>
+              <p class="practice-tile-desc">Mergers, corporate structuring, statutory boards, and shareholder relations.</p>
+              <span class="btn-link">View Practice Area <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Tile 2 -->
+          <div class="practice-tile" onclick="window.location.href='404.html'">
+            <div class="practice-tile-media">
+              <img src="assets/practice-commercial.webp" alt="Commercial Law Practice">
+            </div>
+            <div class="practice-tile-overlay"></div>
+            <div class="practice-tile-content">
+              <div class="practice-tile-tag">TRADE &amp; VENTURES</div>
+              <h3 class="practice-tile-title">Commercial Law</h3>
+              <p class="practice-tile-desc">Cross-border distribution, procurement agreements, and trade governance.</p>
+              <span class="btn-link">View Practice Area <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Tile 3 -->
+          <div class="practice-tile" onclick="window.location.href='404.html'">
+            <div class="practice-tile-media">
+              <img src="assets/practice-employment.webp" alt="Employment Law Practice">
+            </div>
+            <div class="practice-tile-overlay"></div>
+            <div class="practice-tile-content">
+              <div class="practice-tile-tag">WORKFORCE GOVERNANCE</div>
+              <h3 class="practice-tile-title">Employment Law</h3>
+              <p class="practice-tile-desc">Executive employment, restrictive covenants, and statutory labour standards.</p>
+              <span class="btn-link">View Practice Area <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Tile 4 -->
+          <div class="practice-tile" onclick="window.location.href='404.html'">
+            <div class="practice-tile-media">
+              <img src="assets/practice-ip.webp" alt="Intellectual Property Practice">
+            </div>
+            <div class="practice-tile-overlay"></div>
+            <div class="practice-tile-content">
+              <div class="practice-tile-tag">INTELLECTUAL ASSETS</div>
+              <h3 class="practice-tile-title">Intellectual Property</h3>
+              <p class="practice-tile-desc">Patent strategy, trademark registration, and trade secret litigation defense.</p>
+              <span class="btn-link">View Practice Area <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Tile 5 -->
+          <div class="practice-tile" onclick="window.location.href='404.html'">
+            <div class="practice-tile-media">
+              <img src="assets/practice-realestate.webp" alt="Real Estate Law Practice">
+            </div>
+            <div class="practice-tile-overlay"></div>
+            <div class="practice-tile-content">
+              <div class="practice-tile-tag">LAND &amp; ASSETS</div>
+              <h3 class="practice-tile-title">Real Estate Law</h3>
+              <p class="practice-tile-desc">Commercial leases, zoning approvals, real estate developments, and acquisitions.</p>
+              <span class="btn-link">View Practice Area <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Tile 6 -->
+          <div class="practice-tile" onclick="window.location.href='404.html'">
+            <div class="practice-tile-media">
+              <img src="assets/practice-family.webp" alt="Family Law Practice">
+            </div>
+            <div class="practice-tile-overlay"></div>
+            <div class="practice-tile-content">
+              <div class="practice-tile-tag">PRIVATE CLIENTS</div>
+              <h3 class="practice-tile-title">Family Law</h3>
+              <p class="practice-tile-desc">Wealth preservation, family trusts, pre-nuptial arrangements, and estate succession.</p>
+              <span class="btn-link">View Practice Area <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Tile 7 -->
+          <div class="practice-tile" onclick="window.location.href='404.html'">
+            <div class="practice-tile-media">
+              <img src="assets/practice-dispute.webp" alt="Dispute Resolution Practice">
+            </div>
+            <div class="practice-tile-overlay"></div>
+            <div class="practice-tile-content">
+              <div class="practice-tile-tag">ADVOCACY &amp; MEDIATION</div>
+              <h3 class="practice-tile-title">Dispute Resolution</h3>
+              <p class="practice-tile-desc">Commercial dispute arbitration, contractual conciliation, and settlement strategy.</p>
+              <span class="btn-link">View Practice Area <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+
+          <!-- Tile 8 -->
+          <div class="practice-tile" onclick="window.location.href='404.html'">
+            <div class="practice-tile-media">
+              <img src="assets/practice-compliance.webp" alt="Regulatory Compliance Practice">
+            </div>
+            <div class="practice-tile-overlay"></div>
+            <div class="practice-tile-content">
+              <div class="practice-tile-tag">STANDARDS &amp; AUDITS</div>
+              <h3 class="practice-tile-title">Regulatory Compliance</h3>
+              <p class="practice-tile-desc">Anti-money laundering manuals, ESG disclosures, and supervisory agency filings.</p>
+              <span class="btn-link">View Practice Area <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: HOW WE WORK (5-Step Visual Process)
+         ========================================== -->
+    <section class="section section-ivory-light">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">OUR METHODOLOGY</span>
+          <h2 class="section-heading">From Understanding to Resolution.</h2>
+          <p class="section-desc">
+            A structured, transparent engagement model engineered to identify risks early, architect strategic pathways, and deliver decisive outcomes.
+          </p>
+        </div>
+
+        <div class="process-timeline">
+          <div class="process-line">
+            <div class="process-line-progress"></div>
+          </div>
+          <div class="process-steps-grid">
+            <!-- Step 1 -->
+            <div class="process-step-item">
+              <div class="step-node">
+                <span class="step-num">01</span>
+                <i class="fa-regular fa-comments step-icon"></i>
+              </div>
+              <h4 class="step-title">Initial Consultation</h4>
+              <p class="step-desc">
+                Comprehensive preliminary briefing to define your legal exposure, commercial objectives, and strategic priorities.
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="process-step-item">
+              <div class="step-node">
+                <span class="step-num">02</span>
+                <i class="fa-solid fa-magnifying-glass-chart step-icon"></i>
+              </div>
+              <h4 class="step-title">Requirement Analysis</h4>
+              <p class="step-desc">
+                Deep-dive investigation of documentation, statutory obligations, precedents, and jurisdictional conditions.
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="process-step-item">
+              <div class="step-node">
+                <span class="step-num">03</span>
+                <i class="fa-solid fa-compass-drafting step-icon"></i>
+              </div>
+              <h4 class="step-title">Strategy Development</h4>
+              <p class="step-desc">
+                Architecting a bespoke legal strategy with actionable advisory memorandums and risk-weighted scenarios.
+              </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="process-step-item">
+              <div class="step-node">
+                <span class="step-num">04</span>
+                <i class="fa-solid fa-stamp step-icon"></i>
+              </div>
+              <h4 class="step-title">Professional Execution</h4>
+              <p class="step-desc">
+                Drafting binding agreements, conducting bilateral negotiations, or managing compliance implementation.
+              </p>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="process-step-item">
+              <div class="step-node">
+                <span class="step-num">05</span>
+                <i class="fa-solid fa-handshake-angle step-icon"></i>
+              </div>
+              <h4 class="step-title">Continuous Support</h4>
+              <p class="step-desc">
+                Ongoing advisory retainers, annual compliance health checks, and responsive boardroom legal assistance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 7: WHY CHOOSE US? (6 Feature Blocks)
+         ========================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">THE STACKLY DISTINCTION</span>
+          <h2 class="section-heading">Why Choose Us?</h2>
+          <p class="section-desc">
+            We operate with unwavering commitment to institutional discipline, commercial acumen, and professional diligence.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Block 1 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrap"><i class="fa-solid fa-award"></i></div>
+            <h4>Professional Expertise</h4>
+            <p>
+              Our consulting team brings multidisciplinary exposure across corporate jurisprudence, commercial trade agreements, and statutory compliance frameworks.
+            </p>
+          </div>
+
+          <!-- Block 2 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrap"><i class="fa-solid fa-user-tie"></i></div>
+            <h4>Client-Focused Approach</h4>
+            <p>
+              We prioritize individualized attention for every advisory brief, tailoring solutions to each organization's operating environment and risk profile.
+            </p>
+          </div>
+
+          <!-- Block 3 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrap"><i class="fa-solid fa-comments-dollar"></i></div>
+            <h4>Transparent Communication</h4>
+            <p>
+              Clear advisory language without unnecessary legal jargon, transparent fee schedules, and predictable consultative milestones.
+            </p>
+          </div>
+
+          <!-- Block 4 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrap"><i class="fa-solid fa-brain"></i></div>
+            <h4>Strategic Problem Solving</h4>
+            <p>
+              We look beyond narrow statutory interpretations to devise creative, commercially viable pathways that advance your corporate objectives.
+            </p>
+          </div>
+
+          <!-- Block 5 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrap"><i class="fa-solid fa-user-shield"></i></div>
+            <h4>Confidentiality Awareness</h4>
+            <p>
+              Strict adherence to professional confidentiality standards, safeguarding proprietary corporate strategies and sensitive deliberations.
+            </p>
+          </div>
+
+          <!-- Block 6 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+            <h4>Practical Business Solutions</h4>
+            <p>
+              Actionable advice designed for real-world enterprise operations, balancing rigorous legal protection with commercial momentum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 8: OUR TEAM (5 Fictional Profiles)
+         ========================================== -->
+    <section class="section section-ivory-light">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">LEADERSHIP &amp; COUNSEL</span>
+          <h2 class="section-heading">Our Advisory Team</h2>
+          <p class="section-desc">
+            Fictional representative profiles demonstrating consultative leadership across corporate law, commercial contracts, and enterprise strategy.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <!-- Member 1 -->
+          <div class="team-card">
+            <div class="team-card-media">
+              <img src="assets/team-partner-1.webp" alt="Fictional Managing Partner">
+            </div>
+            <div class="team-card-body">
+              <h4 class="team-member-name">Sarah Jenkins, Esq.</h4>
+              <div class="team-member-role">Managing Partner</div>
+              <p class="team-member-bio">Specializing in corporate governance, international joint ventures, and strategic corporate reorganizations.</p>
+              <span class="team-member-badge">Corporate Law</span>
+            </div>
+          </div>
+
+          <!-- Member 2 -->
+          <div class="team-card">
+            <div class="team-card-media">
+              <img src="assets/team-partner-2.webp" alt="Fictional Corporate Legal Consultant">
+            </div>
+            <div class="team-card-body">
+              <h4 class="team-member-name">Elena Rostova, Esq.</h4>
+              <div class="team-member-role">Corporate Legal Consultant</div>
+              <p class="team-member-bio">Focusing on cross-border commercial transactions, regulatory compliance, and commercial real estate transactions.</p>
+              <span class="team-member-badge">Commercial Advisory</span>
+            </div>
+          </div>
+
+          <!-- Member 3 -->
+          <div class="team-card">
+            <div class="team-card-media">
+              <img src="assets/team-partner-3.webp" alt="Fictional Business Strategy Advisor">
+            </div>
+            <div class="team-card-body">
+              <h4 class="team-member-name">David Thorne</h4>
+              <div class="team-member-role">Business Strategy Advisor</div>
+              <p class="team-member-bio">Advising scale-ups and established enterprises on operational restructuring, risk matrices, and market entry.</p>
+              <span class="team-member-badge">Management Strategy</span>
+            </div>
+          </div>
+
+          <!-- Member 4 -->
+          <div class="team-card">
+            <div class="team-card-media">
+              <img src="assets/team-partner-4.webp" alt="Fictional Contract Specialist">
+            </div>
+            <div class="team-card-body">
+              <h4 class="team-member-name">Clara Vance, LL.M.</h4>
+              <div class="team-member-role">Contract Specialist</div>
+              <p class="team-member-bio">Expertise in complex procurement frameworks, technology licensing, and vendor dispute mitigation agreements.</p>
+              <span class="team-member-badge">Contract Law</span>
+            </div>
+          </div>
+
+          <!-- Member 5 -->
+          <div class="team-card">
+            <div class="team-card-media">
+              <img src="assets/team-partner-5.webp" alt="Fictional Compliance Consultant">
+            </div>
+            <div class="team-card-body">
+              <h4 class="team-member-name">Marcus Sterling</h4>
+              <div class="team-member-role">Compliance Consultant</div>
+              <p class="team-member-bio">Guiding institutional organizations through statutory reporting, ESG disclosures, and AML regulatory audits.</p>
+              <span class="team-member-badge">Regulatory Compliance</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center" style="margin-top: 32px; font-size: 0.8rem; color: var(--text-muted);">
+          <i class="fa-solid fa-circle-info"></i> All team biographies and credentials are demonstration content for showcase purposes only.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 9: CORPORATE STATISTICS
+         ========================================== -->
+    <section class="stats-banner">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-counter" data-target="15">0</div>
+            <div class="stat-label-title">Legal Services Offered</div>
+            <div class="stat-subnote">Comprehensive Demo Coverage</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-counter" data-target="12">0</div>
+            <div class="stat-label-title">Consulting Areas</div>
+            <div class="stat-subnote">Strategic Business Disciplines</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-counter" data-target="250">0</div>
+            <div class="stat-label-title">Demo Client Profiles</div>
+            <div class="stat-subnote">Simulated Enterprise Records</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-counter" data-target="1400">0</div>
+            <div class="stat-label-title">Sample Consultation Records</div>
+            <div class="stat-subnote">Illustrative Case History</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 10: CLIENT SUCCESS STORIES (4 Cases)
+         ========================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">CASE DEMONSTRATIONS</span>
+          <h2 class="section-heading">Client Success Stories</h2>
+          <p class="section-desc">
+            Representative case demonstrations illustrating our approach to complex corporate challenges, strategic execution, and business outcomes.
+          </p>
+        </div>
+
+        <div class="cases-grid">
+          <!-- Case 1 -->
+          <div class="case-card">
+            <div class="case-card-header">
+              <img src="assets/case-study-1.webp" alt="Corporate Restructuring Case">
+              <span class="case-category-badge">Corporate Restructuring</span>
+            </div>
+            <div class="case-card-body">
+              <h3 class="case-card-title">Cross-Border Dual Holding Reorganization</h3>
+              <div class="case-breakdown">
+                <div class="case-aspect">
+                  <strong>Challenge:</strong> Multi-entity logistics company required realignment of 5 operating subsidiaries across North American and European jurisdictions.
+                </div>
+                <div class="case-aspect">
+                  <strong>Strategy:</strong> Formulated an overarching holding vehicle with unified statutory compliance standards and restructured shareholder agreements.
+                </div>
+                <div class="case-aspect">
+                  <strong>Outcome:</strong> Achieved streamlined capital allocation and reduced administrative compliance redundancies across all business units.
+                </div>
+              </div>
+              <span class="badge badge-demo">Simulated Demonstration Case</span>
+            </div>
+          </div>
+
+          <!-- Case 2 -->
+          <div class="case-card">
+            <div class="case-card-header">
+              <img src="assets/case-study-2.webp" alt="Business Expansion Advisory Case">
+              <span class="case-category-badge">Business Expansion</span>
+            </div>
+            <div class="case-card-body">
+              <h3 class="case-card-title">European Market Entry &amp; Entity Formulation</h3>
+              <div class="case-breakdown">
+                <div class="case-aspect">
+                  <strong>Challenge:</strong> Rapidly expanding enterprise software provider required market-entry legal clearance, statutory licensing, and employment templates.
+                </div>
+                <div class="case-aspect">
+                  <strong>Strategy:</strong> Provided comprehensive regulatory feasibility assessments and structured local subsidiary articles of association.
+                </div>
+                <div class="case-aspect">
+                  <strong>Outcome:</strong> Successful legal establishment completed on schedule with complete employment and data privacy governance in place.
+                </div>
+              </div>
+              <span class="badge badge-demo">Simulated Demonstration Case</span>
+            </div>
+          </div>
+
+          <!-- Case 3 -->
+          <div class="case-card">
+            <div class="case-card-header">
+              <img src="assets/case-study-3.webp" alt="Contract Review Project Case">
+              <span class="case-category-badge">Contract Review</span>
+            </div>
+            <div class="case-card-body">
+              <h3 class="case-card-title">Enterprise Supply Chain Master Agreement Overhaul</h3>
+              <div class="case-breakdown">
+                <div class="case-aspect">
+                  <strong>Challenge:</strong> Industrial manufacturer was exposed to asymmetric indemnity liability and uncapped liquidated damages across supplier contracts.
+                </div>
+                <div class="case-aspect">
+                  <strong>Strategy:</strong> Redrafted master vendor terms, harmonized liability caps, and established structured arbitration escalation clauses.
+                </div>
+                <div class="case-aspect">
+                  <strong>Outcome:</strong> Re-negotiated master agreements with 14 tier-one suppliers, successfully mitigating operational liability risks.
+                </div>
+              </div>
+              <span class="badge badge-demo">Simulated Demonstration Case</span>
+            </div>
+          </div>
+
+          <!-- Case 4 -->
+          <div class="case-card">
+            <div class="case-card-header">
+              <img src="assets/case-study-4.webp" alt="Compliance Planning Case">
+              <span class="case-category-badge">Compliance Planning</span>
+            </div>
+            <div class="case-card-body">
+              <h3 class="case-card-title">Fintech Regulatory &amp; AML Risk Certification</h3>
+              <div class="case-breakdown">
+                <div class="case-aspect">
+                  <strong>Challenge:</strong> Digital payment processor faced supervisory scrutiny regarding customer due diligence processes and cross-border currency flows.
+                </div>
+                <div class="case-aspect">
+                  <strong>Strategy:</strong> Conducted end-to-end statutory audit, drafted updated internal compliance manuals, and introduced third-party verification protocols.
+                </div>
+                <div class="case-aspect">
+                  <strong>Outcome:</strong> Achieved complete regulatory clearance and certified supervisory compliance without operational disruption.
+                </div>
+              </div>
+              <span class="badge badge-demo">Simulated Demonstration Case</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 11: TESTIMONIALS (Demo Feedback)
+         ========================================== -->
+    <section class="section section-ivory-light">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">CLIENT FEEDBACK</span>
+          <h2 class="section-heading">What Our Partners Say</h2>
+          <p class="section-desc">
+            Representative sample feedback demonstrating our client-centric standard of service. All testimonials are illustrative demonstration content.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+              <p class="testimonial-text">
+                "Stackly delivered unparalleled clarity during our cross-border reorganization. Their ability to bridge legal precision with commercial pragmatism made all the difference in our executive discussions."
+              </p>
+            </div>
+            <div class="testimonial-client">
+              <div class="client-avatar-placeholder">NG</div>
+              <div class="client-info">
+                <h5>Nexus Global Holdings</h5>
+                <span>International Logistics Enterprise</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+              <p class="testimonial-text">
+                "Their contract review capabilities are world-class. They pinpointed subtle liability exposures in our SaaS enterprise master agreements that three previous counsels had completely overlooked."
+              </p>
+            </div>
+            <div class="testimonial-client">
+              <div class="client-avatar-placeholder">AD</div>
+              <div class="client-info">
+                <h5>Aether Dynamics LLC</h5>
+                <span>Enterprise Technology Provider</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div>
+              <div class="testimonial-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+              <p class="testimonial-text">
+                "From corporate entity formation to proprietary patent protection, the team provided proactive, senior-level guidance at every milestone. A truly indispensable strategic legal partner."
+              </p>
+            </div>
+            <div class="testimonial-client">
+              <div class="client-avatar-placeholder">HB</div>
+              <div class="client-info">
+                <h5>Horizon Bioscience Corp</h5>
+                <span>Biomedical Research Firm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center" style="margin-top: 32px; font-size: 0.8rem; color: var(--text-muted);">
+          <i class="fa-solid fa-circle-info"></i> All testimonials displayed above are fictional sample content prepared for web demonstration purposes.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 12: FAQ (Accordion)
+         ========================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">FREQUENTLY ASKED QUESTIONS</span>
+          <h2 class="section-heading">Legal &amp; Advisory Inquiries</h2>
+          <p class="section-desc">
+            Common questions regarding our consultative process, corporate advisory scope, and consultation scheduling.
+          </p>
+        </div>
+
+        <div class="faq-container">
+          <!-- FAQ 1 -->
+          <div class="faq-item active">
+            <div class="faq-header">
+              <h4 class="faq-question">How can I book a legal consultation?</h4>
+              <div class="faq-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+              <p>
+                You can easily request a consultation through our online portal by clicking "Book Consultation" anywhere on the site, or by visiting our Contact page. Select your practice area, preferred date, and time slot to register your demo appointment.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <div class="faq-header">
+              <h4 class="faq-question">What documents should I bring to our initial meeting?</h4>
+              <div class="faq-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+              <p>
+                For corporate inquiries, please bring corporate formation documents (Articles of Association, bylaws), existing contractual drafts under review, and any relevant correspondence. For dispute assessments, bring chronological records of pertinent transactions.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <div class="faq-header">
+              <h4 class="faq-question">Do you provide corporate legal advisory?</h4>
+              <div class="faq-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+              <p>
+                Yes. Our practice advises boards of directors, executive management, and shareholders on corporate governance, fiduciary obligations, mergers and acquisitions, capital structure realignment, and ongoing compliance requirements.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <div class="faq-header">
+              <h4 class="faq-question">Can I schedule an online consultation?</h4>
+              <div class="faq-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+              <p>
+                Absolutely. We conduct secure virtual briefing sessions for regional and international clients across global time zones via encrypted enterprise video conferencing.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <div class="faq-header">
+              <h4 class="faq-question">How does contract review work?</h4>
+              <div class="faq-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+              <p>
+                Our contract review process entails a clause-by-clause analysis to identify asymmetric risk, unmitigated liabilities, ambiguous covenants, and statutory conflicts. We return a redlined draft along with an executive advisory memorandum.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <div class="faq-header">
+              <h4 class="faq-question">Do you assist with company registration?</h4>
+              <div class="faq-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+              <p>
+                Yes. We provide strategic entity selection guidance, draft shareholder pacts, prepare statutory incorporation documents, and guide founders through official regulatory filings for new commercial vehicles.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="faq-item">
+            <div class="faq-header">
+              <h4 class="faq-question">How can I check my consultation status?</h4>
+              <div class="faq-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+              <p>
+                Clients can sign in to the Client Dashboard using their credentials to view upcoming consultations, check real-time status updates (Pending, Confirmed, Completed), reschedule dates, or download relevant briefing notes.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 8 -->
+          <div class="faq-item">
+            <div class="faq-header">
+              <h4 class="faq-question">How can I contact the consulting team?</h4>
+              <div class="faq-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="faq-body">
+              <p>
+                You can reach our senior consulting desk by completing the inquiry form on our Contact page, emailing our advisory dispatch at info@stackly.com, or calling our corporate desk at 1800789456 during office hours.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 13: FINAL CTA
+         ========================================== -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="cta-banner-wrapper">
+          <div class="cta-banner-bg">
+            <img src="assets/meeting-room.webp" alt="Corporate Boardroom Meeting Room">
+          </div>
+          <div class="cta-banner-content">
+            <span class="section-subtitle" style="color: var(--gold-light);">TAKE THE NEXT STEP</span>
+            <h2 class="cta-banner-title">Your Next Business Decision Deserves the Right Guidance.</h2>
+            <p class="cta-banner-desc">
+              Connect with our legal and business advisory counsel today to protect your commercial interests, navigate regulatory changes, and position your enterprise for sustainable growth.
+            </p>
+            <div class="cta-banner-buttons">
+              <button class="btn btn-primary" data-open-modal="consultationModal">
+                <i class="fa-regular fa-calendar-check"></i> SCHEDULE A CONSULTATION
+              </button>
+              <a href="404.html" class="btn btn-outline-gold">
+                <i class="fa-solid fa-envelope"></i> CONTACT OUR TEAM
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         NEWSLETTER BRIEFING SECTION
+         ========================================== -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-card">
+          <div class="newsletter-text">
+            <span class="section-subtitle" style="color: var(--gold-light);">MONTHLY LEGAL INTELLIGENCE</span>
+            <h3>Stay Ahead of Regulatory &amp; Corporate Law Shifts</h3>
+            <p>
+              Join executive counsel and enterprise leaders who receive our monthly curated briefings, statutory summaries, and cross-border commercial updates. No spam; unsubscribe anytime.
+            </p>
+          </div>
+          <div class="newsletter-form-box">
+            <form class="newsletter-form" novalidate>
+              <div class="newsletter-input-group">
+                <input type="email" class="newsletter-email-input" placeholder="Enter your corporate email address...">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fa-solid fa-paper-plane"></i> Subscribe
+                </button>
+              </div>
+              <div class="newsletter-error-msg" style="color: #e53e3e; font-size: 0.8rem; margin-top: 8px; display: none; font-weight: 500;">
+                <i class="fa-solid fa-circle-exclamation"></i> Email is required
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       COMMON FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 12px;" aria-label="Stackly Legal &amp; Consulting">
+            <div class="brand-logo-wrap">
+              <img src="assets/logo.png" alt="Stackly" class="brand-logo-img">
+              <span class="brand-subtitle">Legal &amp; Consulting</span>
+            </div>
+          </a>
+          <p>
+            Stackly is an established corporate legal advisory and business consulting firm providing senior counsel across commercial law, contract drafting, regulatory compliance, and organizational strategy.
+          </p>
+          <div class="footer-socials">
+            <a href="404.html" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="footer-social-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Legal Services -->
+        <div class="footer-col">
+          <h4>Legal Services</h4>
+          <div class="footer-links">
+            <a href="Services.html#corporate"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Corporate Advisory</a>
+            <a href="Services.html#business"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Business Law</a>
+            <a href="Services.html#contracts"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Contract Drafting</a>
+            <a href="Services.html#employment"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Employment Law</a>
+            <a href="Services.html#ip"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Intellectual Property</a>
+            <a href="Services.html#disputes"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Dispute Resolution</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Quick Links (Blue Circle) -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Home</a>
+            <a href="About.html"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> About</a>
+            <a href="Services.html"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Services</a>
+            <a href="Blog.html"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Blog</a>
+            <a href="Contact.html"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Contact</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Contact Info & Hours -->
+        <div class="footer-col">
+          <h4>Office Information</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</div>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <div>1800789456</div>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <div>info@stackly.com</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 5: Stackly Map (Green Circle) -->
+        <div class="footer-col footer-col-map">
+          <h4>Our Location</h4>
+          <div class="footer-map-wrap">
+            <iframe 
+              src="https://maps.google.com/maps?q=11.6829566,78.1739798&hl=en&z=15&output=embed" 
+              width="100%" 
+              height="140" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Stackly Salem Map Location">
+            </iframe>
+            <a href="https://www.google.com/maps/place/Stackly/@11.6829566,78.1739798,17z/data=!3m1!4b1!4m6!3m5!1s0x3babefef7fd970bb:0xe11aef1a71994f9!8m2!3d11.6829566!4d78.1739798!16s%2Fg%2F11l660s35r?entry=ttu&g_ep=EgoyMDI2MDcwNy4wIKXMDSoASAFQAw%3D%3D" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="footer-map-link">
+              <i class="fa-solid fa-location-dot"></i> Open in Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Stackly Legal &amp; Consulting Firm. All Rights Reserved.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms &amp; Conditions</a>
+          <a href="404.html">Regulatory Disclosures</a>
+          <a href="404.html">Cookie Preferences</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       QUICK BOOKING CONSULTATION MODAL
+       ========================================== -->
+  <div id="consultationModal" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Book a Consultation</h3>
+        <button class="modal-close-btn" data-dismiss="modal" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="quickBookingForm">
+        <div class="modal-body">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+            Reserve an initial consultation session with our corporate advisory panel. Simulated records are persisted in local browser storage.
+          </p>
+
+          <div class="form-group">
+            <label class="form-label" for="bookName">Full Legal / Corporate Name *</label>
+            <input type="text" id="bookName" class="form-control" placeholder="e.g. Jonathan Sterling / Sterling Industries Ltd" required>
+            <div class="form-error-msg"></div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="bookEmail">Business Email *</label>
+              <input type="email" id="bookEmail" class="form-control" placeholder="counsel@company.com" required>
+              <div class="form-error-msg"></div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bookPhone">Contact Number *</label>
+              <input type="tel" id="bookPhone" class="form-control" placeholder="+1 (555) 000-0000" required>
+              <div class="form-error-msg"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="bookPracticeArea">Select Practice Area *</label>
+            <select id="bookPracticeArea" class="form-control" required>
+              <option value="">-- Choose Relevant Legal / Consulting Area --</option>
+              <option value="Corporate Law">Corporate Legal Advisory</option>
+              <option value="Commercial Law">Commercial &amp; Business Law</option>
+              <option value="Contract Review">Contract Drafting &amp; Review</option>
+              <option value="Employment Law">Employment &amp; Labour Law</option>
+              <option value="Intellectual Property">Intellectual Property Protection</option>
+              <option value="Real Estate Law">Property &amp; Commercial Real Estate</option>
+              <option value="Dispute Resolution">Dispute Resolution &amp; Arbitration</option>
+              <option value="Regulatory Compliance">Regulatory Compliance &amp; Audits</option>
+              <option value="Company Registration">Company Registration Guidance</option>
+              <option value="Business Strategy">Business Strategy &amp; Restructuring</option>
+            </select>
+            <div class="form-error-msg"></div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="bookDate">Preferred Date *</label>
+              <input type="date" id="bookDate" class="form-control" required>
+              <div class="form-error-msg"></div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bookTime">Preferred Time Slot *</label>
+              <select id="bookTime" class="form-control" required>
+                <option value="">-- Select Time Slot --</option>
+                <option value="09:00 AM">09:00 AM - 10:00 AM</option>
+                <option value="11:00 AM">11:00 AM - 12:00 PM</option>
+                <option value="02:00 PM">02:00 PM - 03:00 PM</option>
+                <option value="04:00 PM">04:00 PM - 05:00 PM</option>
+              </select>
+              <div class="form-error-msg"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="bookNotes">Brief Matter Summary (Optional)</label>
+            <textarea id="bookNotes" class="form-control" rows="3" placeholder="Briefly describe your legal inquiry or consulting requirements..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Confirm Demo Booking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- AOS Animation Library CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- JavaScript Files -->
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

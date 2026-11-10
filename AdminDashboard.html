@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Administration Portal — Stackly Legal &amp; Consulting Firm.">
+  <title>Admin Dashboard — Stackly Legal &amp; Consulting</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/admin-dashboard.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-backdrop"></div>
+    <div class="preloader-content">
+      <div class="preloader-emblem">
+        <div class="preloader-ring"></div>
+        <div class="preloader-ring-outer"></div>
+        <img src="assets/logo-icon.png" alt="Stackly" class="preloader-logo-icon">
+      </div>
+      <div class="preloader-brand">
+        <span class="preloader-brand-title">Stackly</span>
+        <span class="preloader-brand-sub">Firm Administration</span>
+      </div>
+      <div class="preloader-progress">
+        <div class="preloader-progress-fill"></div>
+      </div>
+      <div class="preloader-status">Initializing Admin Desk...</div>
+    </div>
+  </div>
+  <script>
+    window.__preloaderStart = Date.now();
+    (function() {
+      var p = document.getElementById('preloader');
+      if (!p) return;
+      setTimeout(function() { if (p) p.classList.add('fade-out'); }, 1600);
+      setTimeout(function() {
+        if (p) {
+          p.style.display = 'none';
+          try { if (window.AOS) window.AOS.refresh(); } catch(e) {}
+        }
+      }, 2000);
+    })();
+  </script>
+
+  <div class="dashboard-layout">
+    <!-- Mobile Sidebar Overlay -->
+    <div class="dash-sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" aria-label="Admin Sidebar">
+      <div>
+        <div class="dash-sidebar-header">
+          <a href="index.html" class="brand-logo" style="text-decoration: none;" aria-label="Stackly Administration">
+            <div class="brand-logo-wrap">
+              <img src="assets/logo.png" alt="Stackly" class="brand-logo-img">
+              <span class="brand-subtitle">Firm Administration</span>
+            </div>
+          </a>
+          <button class="dash-sidebar-close" aria-label="Close sidebar"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <nav class="dash-sidebar-menu">
+          <div class="dash-menu-heading">Main Menus</div>
+          <a href="#" class="dash-menu-item active" data-view="dashboard">
+            <i class="fa-solid fa-chart-line"></i> Dashboard
+          </a>
+          <a href="#" class="dash-menu-item" data-view="consultations">
+            <i class="fa-solid fa-calendar-check"></i> Consultations
+            <span class="menu-badge" id="sidebarConsultBadge">5</span>
+          </a>
+          <a href="#" class="dash-menu-item" data-view="cases">
+            <i class="fa-solid fa-briefcase"></i> Cases
+          </a>
+          <a href="#" class="dash-menu-item" data-view="clients">
+            <i class="fa-solid fa-users"></i> Clients
+          </a>
+          <a href="#" class="dash-menu-item" data-view="documents">
+            <i class="fa-solid fa-file-invoice"></i> Documents
+          </a>
+          <a href="#" class="dash-menu-item" data-view="services">
+            <i class="fa-solid fa-scale-balanced"></i> Legal Services
+          </a>
+          <a href="#" class="dash-menu-item" data-view="notifications">
+            <i class="fa-solid fa-bell"></i> Notifications
+          </a>
+          <a href="#" class="dash-menu-item" data-view="settings">
+            <i class="fa-solid fa-gear"></i> Settings
+          </a>
+        </nav>
+      </div>
+
+      <div class="dash-sidebar-footer">
+        <button class="logout-btn">
+          <i class="fa-solid fa-power-off"></i> LOGOUT
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <div class="dash-main">
+      <!-- Admin Header -->
+      <header class="dash-header">
+        <div class="dash-header-left">
+          <button class="dash-sidebar-toggle" aria-label="Open sidebar menu"><i class="fa-solid fa-bars"></i></button>
+          <a href="index.html" class="dash-mobile-logo" aria-label="Stackly Home">
+            <img src="assets/logo.png" alt="Stackly" class="dash-mobile-logo-img">
+          </a>
+          <div class="dash-search-input">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Global search cases, consultations, clients...">
+          </div>
+        </div>
+
+        <div class="dash-header-right">
+          <div class="dash-date-badge">
+            <i class="fa-regular fa-calendar"></i>
+            <span id="dashHeaderDate">Wednesday, Nov 4, 2026</span>
+          </div>
+
+          <button class="dash-notif-btn" onclick="window.DashboardBase.switchView('notifications')" aria-label="View notifications">
+            <i class="fa-regular fa-bell"></i>
+            <div id="adminNotifDot" class="notif-badge-dot"></div>
+          </button>
+
+          <div class="dash-profile-pill">
+            <div class="dash-profile-avatar">R</div>
+            <div class="dash-profile-meta">
+              <span class="dash-profile-name">Sarah Jenkins, Esq.</span>
+              <span class="dash-profile-role">Managing Partner (Admin)</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Body Content -->
+      <main class="dash-content">
+
+        <!-- ==========================================
+             VIEW 1: DASHBOARD OVERVIEW
+             ========================================== -->
+        <section id="view-dashboard" class="dash-view active">
+          <div class="dash-welcome-header">
+            <div class="dash-welcome-title-wrap">
+              <h1 class="dash-welcome-heading">Hello, R ! <span class="welcome-emblem">&#9878;&#65039;</span></h1>
+              <p class="dash-welcome-sub">Here is the fresh status of your firm matters and client consultations.</p>
+            </div>
+            <div class="dash-welcome-actions">
+              <span class="badge badge-demo">Demo Administration</span>
+              <button class="btn btn-primary btn-sm" onclick="window.DashboardBase.switchView('consultations')">
+                <i class="fa-solid fa-plus"></i> View Appointments
+              </button>
+            </div>
+          </div>
+
+          <!-- KPI Cards -->
+          <div class="kpi-cards-grid">
+            <div class="kpi-card">
+              <div class="kpi-meta">
+                <h6>Total Clients</h6>
+                <div class="kpi-number" id="kpiTotalClients" data-val="5">5</div>
+                <div class="kpi-note"><i class="fa-solid fa-arrow-up"></i> +12% this month</div>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-users"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-meta">
+                <h6>Active Cases</h6>
+                <div class="kpi-number" id="kpiActiveCases" data-val="4">4</div>
+                <div class="kpi-note" style="color: var(--gold);"><i class="fa-solid fa-clock"></i> 3 pending review</div>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-briefcase"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-meta">
+                <h6>Pending Consultations</h6>
+                <div class="kpi-number" id="kpiPendingConsultations" data-val="2">2</div>
+                <div class="kpi-note" style="color: var(--status-pending);"><i class="fa-solid fa-hourglass-half"></i> Action required</div>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-calendar-days"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-meta">
+                <h6>Completed Consultations</h6>
+                <div class="kpi-number" id="kpiCompletedConsultations" data-val="14">14</div>
+                <div class="kpi-note"><i class="fa-solid fa-check"></i> 100% adherence</div>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-circle-check"></i></div>
+            </div>
+          </div>
+
+          <!-- Analytics Charts -->
+          <div class="admin-analytics-grid">
+            <div class="chart-card">
+              <div class="chart-header">
+                <h3 class="chart-title">Consultation Volume Trends</h3>
+                <div class="chart-period-toggles">
+                  <button class="period-btn" data-period="7D">7D</button>
+                  <button class="period-btn active" data-period="30D">30D</button>
+                  <button class="period-btn" data-period="3M">3M</button>
+                  <button class="period-btn" data-period="1Y">1Y</button>
+                </div>
+              </div>
+              <div id="consultationsChartSvg" class="chart-svg-container"></div>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-header">
+                <h3 class="chart-title">Active Practice Distribution</h3>
+                <span class="badge badge-demo">Simulated Ratio</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 14px; justify-content: center; height: 100%;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 4px;">
+                    <span>Corporate Law &amp; Governance</span>
+                    <strong>40%</strong>
+                  </div>
+                  <div style="height: 6px; background: #E2E8F0; border-radius: 3px; overflow: hidden;">
+                    <div style="width: 40%; height: 100%; background: var(--gold);"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 4px;">
+                    <span>Commercial &amp; Contract Law</span>
+                    <strong>28%</strong>
+                  </div>
+                  <div style="height: 6px; background: #E2E8F0; border-radius: 3px; overflow: hidden;">
+                    <div style="width: 28%; height: 100%; background: var(--navy);"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 4px;">
+                    <span>Intellectual Property Protection</span>
+                    <strong>18%</strong>
+                  </div>
+                  <div style="height: 6px; background: #E2E8F0; border-radius: 3px; overflow: hidden;">
+                    <div style="width: 18%; height: 100%; background: var(--status-progress);"></div>
+                  </div>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 4px;">
+                    <span>Regulatory Compliance Audits</span>
+                    <strong>14%</strong>
+                  </div>
+                  <div style="height: 6px; background: #E2E8F0; border-radius: 3px; overflow: hidden;">
+                    <div style="width: 14%; height: 100%; background: var(--status-completed);"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Recent Consultations Preview Table -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Recent Client Consultations</h3>
+              <button class="btn btn-secondary btn-sm" onclick="window.DashboardBase.switchView('consultations')">
+                View Full Roster <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Ref ID</th>
+                    <th>Client Enterprise</th>
+                    <th>Practice Area</th>
+                    <th>Date</th>
+                    <th>Slot</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="consultationsTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 2: CONSULTATIONS MANAGEMENT
+             ========================================== -->
+        <section id="view-consultations" class="dash-view">
+          <div class="dash-view-header">
+            <div class="dash-view-title">
+              <h2>Consultation Schedule &amp; Management</h2>
+              <p>Review, confirm, reschedule, and manage client briefing sessions.</p>
+            </div>
+            <div class="table-controls">
+              <input type="text" id="consultSearchInput" class="filter-select" placeholder="Search client or ref..." style="width: 220px;">
+              <select id="consultStatusFilter" class="filter-select">
+                <option value="all">All Statuses</option>
+                <option value="Pending">Pending</option>
+                <option value="Confirmed">Confirmed</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Consultations KPI Row -->
+          <div class="kpi-cards-grid" style="margin-bottom: 24px;">
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Total Bookings</span>
+                <div class="kpi-icon"><i class="fa-solid fa-calendar-days"></i></div>
+              </div>
+              <div class="kpi-value">18</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +12% this month</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Confirmed Sessions</span>
+                <div class="kpi-icon"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+              <div class="kpi-value">12</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-check"></i> Ready for counsel brief</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Pending Review</span>
+                <div class="kpi-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+              </div>
+              <div class="kpi-value">4</div>
+              <div class="kpi-trend neutral"><i class="fa-solid fa-clock"></i> Requires dispatch response</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Completed Consultations</span>
+                <div class="kpi-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+              </div>
+              <div class="kpi-value">2</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-star"></i> 100% satisfaction score</div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Ref ID</th>
+                    <th>Client Enterprise</th>
+                    <th>Consultation Service</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Management Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="consultationsTableBody2">
+                  <!-- Synced by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 3: CASES MANAGEMENT
+             ========================================== -->
+        <section id="view-cases" class="dash-view">
+          <div class="dash-view-header">
+            <div class="dash-view-title">
+              <h2>Legal Case Roster</h2>
+              <p>Monitor ongoing corporate matters, contractual disputes, and compliance certifications.</p>
+            </div>
+            <div class="table-controls">
+              <select id="caseStatusFilter" class="filter-select">
+                <option value="all">All Statuses</option>
+                <option value="Open">Open</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Under Review">Under Review</option>
+                <option value="On Hold">On Hold</option>
+                <option value="Closed">Closed</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Cases KPI Row -->
+          <div class="kpi-cards-grid" style="margin-bottom: 24px;">
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Active Matters</span>
+                <div class="kpi-icon"><i class="fa-solid fa-briefcase"></i></div>
+              </div>
+              <div class="kpi-value">8</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-gavel"></i> In active proceedings</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Under Regulatory Review</span>
+                <div class="kpi-icon"><i class="fa-solid fa-file-shield"></i></div>
+              </div>
+              <div class="kpi-value">3</div>
+              <div class="kpi-trend neutral"><i class="fa-solid fa-triangle-exclamation"></i> Clearance pending</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Resolved This Year</span>
+                <div class="kpi-icon"><i class="fa-solid fa-award"></i></div>
+              </div>
+              <div class="kpi-value">14</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +28% efficiency</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Average Resolution Time</span>
+                <div class="kpi-icon"><i class="fa-solid fa-stopwatch"></i></div>
+              </div>
+              <div class="kpi-value">46 Days</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-arrow-trend-down"></i> -14% vs benchmark</div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Case Ref</th>
+                    <th>Matter Title / Client</th>
+                    <th>Practice Area</th>
+                    <th>Lead Counsel</th>
+                    <th>Filing Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="casesTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 4: CLIENTS MANAGEMENT
+             ========================================== -->
+        <section id="view-clients" class="dash-view">
+          <div class="dash-view-header">
+            <div class="dash-view-title">
+              <h2>Client Entity Profiles</h2>
+              <p>Corporate directory of registered commercial enterprises and private retained clients.</p>
+            </div>
+          </div>
+
+          <!-- Clients KPI Row -->
+          <div class="kpi-cards-grid" style="margin-bottom: 24px;">
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Corporate Retainers</span>
+                <div class="kpi-icon"><i class="fa-solid fa-users"></i></div>
+              </div>
+              <div class="kpi-value">42</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> 96% annual renewal</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">New Clients This Month</span>
+                <div class="kpi-icon"><i class="fa-solid fa-user-plus"></i></div>
+              </div>
+              <div class="kpi-value">6</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-plus"></i> Enterprise tier</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Average Retainer Tenure</span>
+                <div class="kpi-icon"><i class="fa-solid fa-handshake"></i></div>
+              </div>
+              <div class="kpi-value">1.8 Yrs</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-shield"></i> High stability</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Compliance Rating</span>
+                <div class="kpi-icon"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+              <div class="kpi-value">99.4%</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-check-double"></i> Zero audit breaches</div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Client ID</th>
+                    <th>Organization / Name</th>
+                    <th>Corporate Email</th>
+                    <th>Telephone</th>
+                    <th>Consultations</th>
+                    <th>Registered</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="clientsTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 5: DOCUMENTS MANAGEMENT
+             ========================================== -->
+        <section id="view-documents" class="dash-view">
+          <div class="dash-view-header">
+            <div class="dash-view-title">
+              <h2>Document Custody Demonstration</h2>
+              <p>Simulated repository for matter briefs, drafted agreements, and compliance certifications.</p>
+            </div>
+          </div>
+
+          <!-- Documents KPI Row -->
+          <div class="kpi-cards-grid" style="margin-bottom: 24px;">
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Repository Assets</span>
+                <div class="kpi-icon"><i class="fa-solid fa-folder-open"></i></div>
+              </div>
+              <div class="kpi-value">148</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-database"></i> Encrypted storage</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Executed Agreements</span>
+                <div class="kpi-icon"><i class="fa-solid fa-file-signature"></i></div>
+              </div>
+              <div class="kpi-value">94</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-check"></i> Verified bilateral</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Awaiting Execution</span>
+                <div class="kpi-icon"><i class="fa-solid fa-file-pen"></i></div>
+              </div>
+              <div class="kpi-value">12</div>
+              <div class="kpi-trend neutral"><i class="fa-solid fa-clock"></i> Client counter-party</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Audit Memoranda</span>
+                <div class="kpi-icon"><i class="fa-solid fa-file-invoice"></i></div>
+              </div>
+              <div class="kpi-value">42</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-shield-halved"></i> Statutory compliant</div>
+            </div>
+          </div>
+
+          <!-- Mock Upload Dropzone -->
+          <div class="demo-upload-dropzone" id="adminUploadZone">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <h4>Simulate Document Upload</h4>
+            <p>Click here to select a sample file for demonstration listing. No actual confidential files are sent.</p>
+            <input type="file" id="adminDocFileInput" style="display: none;" accept=".pdf,.docx,.doc">
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Matter Records &amp; Briefs</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Doc Ref</th>
+                    <th>Document Filename</th>
+                    <th>Classification</th>
+                    <th>Case Ref</th>
+                    <th>Uploaded</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="docsTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 6: LEGAL SERVICES CRUD
+             ========================================== -->
+        <section id="view-services" class="dash-view">
+          <div class="dash-view-header">
+            <div class="dash-view-title">
+              <h2>Practice &amp; Services Management</h2>
+              <p>Configure legal practice domains and business consulting advisory areas.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="window.LegalApp.openModal('addServiceModal')">
+              <i class="fa-solid fa-plus"></i> Add Service Domain
+            </button>
+          </div>
+
+          <!-- Services KPI Row -->
+          <div class="kpi-cards-grid" style="margin-bottom: 24px;">
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Legal Practice Disciplines</span>
+                <div class="kpi-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+              </div>
+              <div class="kpi-value">9</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-layer-group"></i> Active domains</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Consulting Offerings</span>
+                <div class="kpi-icon"><i class="fa-solid fa-chart-line"></i></div>
+              </div>
+              <div class="kpi-value">8</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-briefcase"></i> Enterprise advisory</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Retainer Service Tiers</span>
+                <div class="kpi-icon"><i class="fa-solid fa-tag"></i></div>
+              </div>
+              <div class="kpi-value">17</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-check"></i> Standardized rates</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Lead Counsel Assigned</span>
+                <div class="kpi-icon"><i class="fa-solid fa-user-tie"></i></div>
+              </div>
+              <div class="kpi-value">5 Partners</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-star"></i> Senior oversight</div>
+            </div>
+          </div>
+
+          <div class="services-admin-grid">
+            <div class="service-admin-item">
+              <div>
+                <div class="service-admin-top">
+                  <div class="service-admin-icon"><i class="fa-solid fa-landmark"></i></div>
+                  <span class="badge badge-demo">Legal Practice</span>
+                </div>
+                <h4 style="font-size: 1.15rem; margin-bottom: 6px;">Corporate Legal Advisory</h4>
+                <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">Governance frameworks, board advisory, and subsidiary structuring.</p>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; border-top: 1px solid var(--border-light); padding-top: 12px;">
+                <span style="font-size: 0.78rem; font-weight: 600; color: var(--gold);">Active Domain</span>
+                <button class="btn-table-action" onclick="window.LegalApp.showToast('Service Config', 'Simulated service edit modal', 'info')"><i class="fa-solid fa-pen"></i></button>
+              </div>
+            </div>
+
+            <div class="service-admin-item">
+              <div>
+                <div class="service-admin-top">
+                  <div class="service-admin-icon"><i class="fa-solid fa-briefcase"></i></div>
+                  <span class="badge badge-demo">Legal Practice</span>
+                </div>
+                <h4 style="font-size: 1.15rem; margin-bottom: 6px;">Contract Drafting &amp; Review</h4>
+                <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">Bespoke commercial covenants, procurement terms, and audit memoranda.</p>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; border-top: 1px solid var(--border-light); padding-top: 12px;">
+                <span style="font-size: 0.78rem; font-weight: 600; color: var(--gold);">Active Domain</span>
+                <button class="btn-table-action" onclick="window.LegalApp.showToast('Service Config', 'Simulated service edit modal', 'info')"><i class="fa-solid fa-pen"></i></button>
+              </div>
+            </div>
+
+            <div class="service-admin-item">
+              <div>
+                <div class="service-admin-top">
+                  <div class="service-admin-icon"><i class="fa-solid fa-chess"></i></div>
+                  <span class="badge badge-demo">Consulting</span>
+                </div>
+                <h4 style="font-size: 1.15rem; margin-bottom: 6px;">Business Restructuring</h4>
+                <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">Holding entity consolidation, debt covenants, and capital efficiency.</p>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px; border-top: 1px solid var(--border-light); padding-top: 12px;">
+                <span style="font-size: 0.78rem; font-weight: 600; color: var(--gold);">Active Domain</span>
+                <button class="btn-table-action" onclick="window.LegalApp.showToast('Service Config', 'Simulated service edit modal', 'info')"><i class="fa-solid fa-pen"></i></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 7: NOTIFICATIONS
+             ========================================== -->
+        <section id="view-notifications" class="dash-view">
+          <div class="dash-view-header">
+            <div class="dash-view-title">
+              <h2>Administrative Notifications</h2>
+              <p>Real-time audit alerts, case status changes, and newly scheduled client inquiries.</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="markAllNotifsBtn">
+              <i class="fa-solid fa-check-double"></i> Mark All as Read
+            </button>
+          </div>
+
+          <!-- Notifications KPI Row -->
+          <div class="kpi-cards-grid" style="margin-bottom: 24px;">
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Total Audit Alerts</span>
+                <div class="kpi-icon"><i class="fa-solid fa-bell"></i></div>
+              </div>
+              <div class="kpi-value">24</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-list-check"></i> Full audit trail</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Actionable Inquiries</span>
+                <div class="kpi-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+              </div>
+              <div class="kpi-value">3</div>
+              <div class="kpi-trend neutral"><i class="fa-solid fa-clock"></i> Response SLA &lt; 2h</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Case Milestones</span>
+                <div class="kpi-icon"><i class="fa-solid fa-flag-checkered"></i></div>
+              </div>
+              <div class="kpi-value">5</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-check"></i> Updated this week</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">System Status</span>
+                <div class="kpi-icon"><i class="fa-solid fa-server"></i></div>
+              </div>
+              <div class="kpi-value">Optimal</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-circle-check"></i> 100% simulated uptime</div>
+            </div>
+          </div>
+
+          <div class="notif-list" id="adminNotifList">
+            <!-- Populated by JS -->
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 8: SETTINGS
+             ========================================== -->
+        <section id="view-settings" class="dash-view">
+          <div class="dash-view-header">
+            <div class="dash-view-title">
+              <h2>Firm &amp; System Configuration</h2>
+              <p>Manage administrative profile, firm identity, security standards, and notification parameters.</p>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+            <div class="dash-card" style="padding: 28px;">
+              <h3 style="font-size: 1.35rem; margin-bottom: 18px;">Administrator Profile</h3>
+              <form id="adminSettingsForm" novalidate>
+                <div class="form-group">
+                  <label class="form-label" for="adminSettingsName">Full Legal Name *</label>
+                  <input type="text" id="adminSettingsName" class="form-control" value="Sarah Jenkins, Esq." required>
+                  <div class="form-error-msg"></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="adminSettingsEmail">Official Corporate Email *</label>
+                  <input type="email" id="adminSettingsEmail" class="form-control" value="admin@stackly.demo" required>
+                  <div class="form-error-msg"></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="adminSettingsTitle">Primary Practice Title *</label>
+                  <input type="text" id="adminSettingsTitle" class="form-control" value="Managing Partner &amp; Corporate Counsel" required>
+                  <div class="form-error-msg"></div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Update Profile</button>
+              </form>
+            </div>
+
+            <div class="dash-card" style="padding: 28px;">
+              <h3 style="font-size: 1.35rem; margin-bottom: 18px;">Firm Information</h3>
+              <div class="form-group">
+                <label class="form-label">Firm Trading Name</label>
+                <input type="text" class="form-control" value="Stackly Legal &amp; Consulting" readonly>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Global Headquarters</label>
+                <input type="text" class="form-control" value="MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008" readonly>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Contact Telephone</label>
+                <input type="text" class="form-control" value="1800789456" readonly>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Corporate Email</label>
+                <input type="text" class="form-control" value="info@stackly.com" readonly>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Environment Mode</label>
+                <input type="text" class="form-control" value="Frontend Client-Side Demonstration (localStorage)" readonly>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Detail Modals -->
+  <div id="consultDetailModal" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Consultation Dossier</h3>
+        <button class="modal-close-btn" data-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="consultModalBody"></div>
+    </div>
+  </div>
+
+  <div id="caseDetailModal" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Matter Record Details</h3>
+        <button class="modal-close-btn" data-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="caseModalBody"></div>
+    </div>
+  </div>
+
+  <div id="clientDetailModal" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Client Entity Profile</h3>
+        <button class="modal-close-btn" data-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="clientModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Reschedule Modal -->
+  <div id="rescheduleModal" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Reschedule Consultation</h3>
+        <button class="modal-close-btn" data-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="rescheduleForm" novalidate>
+        <div class="modal-body">
+          <input type="hidden" id="rescheduleId">
+          <div class="form-group">
+            <label class="form-label" for="rescheduleDate">Select New Date *</label>
+            <input type="date" id="rescheduleDate" class="form-control" required>
+            <div class="form-error-msg"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="rescheduleTime">Select Time Slot *</label>
+            <select id="rescheduleTime" class="form-control" required>
+              <option value="">Choose a time slot...</option>
+              <option value="09:00 AM">09:00 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="02:00 PM">02:00 PM</option>
+              <option value="04:00 PM">04:00 PM</option>
+            </select>
+            <div class="form-error-msg"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Confirm Reschedule</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Service Modal -->
+  <div id="addServiceModal" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Add Practice Service</h3>
+        <button class="modal-close-btn" data-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="adminAddServiceForm" novalidate>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="newServiceTitle">Service Domain Title *</label>
+            <input type="text" id="newServiceTitle" class="form-control" placeholder="e.g. Maritime &amp; Admiralty Trade Law" required>
+            <div class="form-error-msg"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="newServiceCategory">Category Classification *</label>
+            <select id="newServiceCategory" class="form-control" required>
+              <option value="">Select category...</option>
+              <option value="Legal Practice">Legal Practice Domain</option>
+              <option value="Business Consulting">Business Consulting Discipline</option>
+            </select>
+            <div class="form-error-msg"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="newServiceOverview">Brief Practice Overview *</label>
+            <textarea id="newServiceOverview" class="form-control" rows="3" placeholder="Define typical matter scope and advisory coverage..." required></textarea>
+            <div class="form-error-msg"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Save Practice Domain</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

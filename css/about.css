@@ -1,0 +1,650 @@
+/* ==========================================================================
+   LEGAL & CONSULTING — ABOUT PAGE STYLES (about.css)
+   Completely responsive across all devices and views (320px to 2560px)
+   ========================================================================== */
+
+/* Universal Overflow Protection for About Page */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+  width: 100%;
+}
+
+main {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ==========================================================================
+   1. ABOUT HERO
+   ========================================================================== */
+.about-hero {
+  position: relative;
+  padding: calc(var(--header-height) + 60px) 0 80px;
+  background-color: var(--navy-dark);
+  color: var(--ivory);
+  overflow: hidden;
+  border-bottom: 2px solid var(--gold);
+}
+
+.about-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.about-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.28);
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.about-hero-title {
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  color: var(--ivory);
+  margin-bottom: 20px;
+  line-height: 1.18;
+  word-wrap: break-word;
+}
+
+.about-hero-title span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.about-hero-lead {
+  font-size: clamp(1.02rem, 1.8vw, 1.2rem);
+  color: var(--ivory-dark);
+  line-height: 1.7;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. TWO-COLUMN EDITORIAL SECTIONS
+   ========================================================================== */
+.editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.editorial-grid.reversed {
+  grid-template-columns: 1fr 1fr;
+}
+
+.editorial-img-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+.editorial-img-wrap img {
+  width: 100%;
+  height: 480px;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: var(--shadow-lg);
+  display: block;
+}
+
+.editorial-img-frame {
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.editorial-text h3 {
+  font-size: clamp(1.75rem, 3vw, 2.3rem);
+  line-height: 1.25;
+  margin-bottom: 20px;
+  color: inherit;
+}
+
+.editorial-text p {
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.section-dark .editorial-text p {
+  color: var(--ivory-dark);
+}
+
+/* Strategic Checklist */
+.about-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--text-dark);
+}
+
+.about-checklist li i {
+  color: var(--gold);
+  margin-top: 3px;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   3. MISSION & VISION CARDS
+   ========================================================================== */
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  margin-top: 40px;
+}
+
+.mv-card {
+  background: var(--white);
+  padding: 44px 36px;
+  border-radius: 6px;
+  border-top: 4px solid var(--gold);
+  box-shadow: var(--shadow-md);
+  border-left: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  transition: transform var(--transition-normal);
+}
+
+.mv-card:hover {
+  transform: translateY(-4px);
+}
+
+.mv-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--gold-soft);
+  border: 1px solid var(--gold-border);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+
+.mv-card h3 {
+  font-size: 1.7rem;
+  margin-bottom: 16px;
+}
+
+.mv-card p {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   4. PROFESSIONAL VALUES GRID
+   ========================================================================== */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.value-card {
+  background: var(--navy-surface);
+  border: 1px solid rgba(176, 141, 87, 0.2);
+  border-radius: 6px;
+  padding: 36px 28px;
+  color: var(--ivory);
+  transition: all var(--transition-normal);
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.value-number {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.value-card h4 {
+  color: var(--ivory);
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+}
+
+.value-card p {
+  color: var(--ivory-dark);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   5. CLIENT RELATIONSHIP PILLARS
+   ========================================================================== */
+.relationship-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.rel-box {
+  background: var(--white);
+  padding: 36px 30px;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal);
+}
+
+.rel-box:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+.rel-box h4 {
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+}
+
+.rel-box p {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   6. TEAM BENCH GRID (Responsive Overrides)
+   ========================================================================== */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.team-card {
+  background: var(--white);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-normal);
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold-border);
+}
+
+.team-card-media {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.team-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.team-card-body {
+  padding: 20px 18px;
+}
+
+.team-member-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.team-member-role {
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.team-member-bio {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.team-member-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(176, 141, 87, 0.1);
+  color: var(--gold);
+  font-size: 0.76rem;
+  font-weight: 600;
+  border-radius: 4px;
+  border: 1px solid rgba(176, 141, 87, 0.2);
+}
+
+/* Modal form row responsiveness */
+.modal-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (ALL DEVICES AT ALL VIEWS)
+   ========================================================================== */
+
+/* Large Desktops to Laptops (1280px) */
+@media (max-width: 1280px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Landscape Tablets & Small Laptops (1024px) */
+@media (max-width: 1024px) {
+  .about-hero {
+    padding: calc(var(--header-height) + 40px) 0 65px;
+  }
+  .editorial-grid,
+  .editorial-grid.reversed {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .editorial-img-wrap img {
+    height: 400px;
+  }
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .relationship-pillars {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Medium Tablets (850px) */
+@media (max-width: 850px) {
+  .relationship-pillars {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .stat-item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+}
+
+/* Portrait Tablets & Large Phones (768px) */
+@media (max-width: 768px) {
+  .about-hero {
+    padding: calc(var(--header-height) + 30px) 0 55px;
+  }
+  .editorial-img-frame {
+    top: -8px;
+    left: -8px;
+    border-width: 1.5px;
+  }
+  .editorial-img-wrap img {
+    height: 320px;
+  }
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .cta-banner-content {
+    padding: 50px 24px;
+  }
+  .cta-banner-title {
+    font-size: 2rem !important;
+  }
+  .cta-banner-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 14px;
+  }
+  .cta-banner-buttons .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Small Tablets & Phablets (600px) */
+@media (max-width: 600px) {
+  .about-hero {
+    padding: 95px 0 45px;
+  }
+  .about-hero-title {
+    font-size: 2.2rem;
+  }
+  .editorial-img-frame {
+    display: none; /* Prevents edge clipping on small screens */
+  }
+  .editorial-img-wrap img {
+    height: 270px;
+  }
+  .editorial-text h3 {
+    font-size: 1.7rem;
+  }
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .team-card-media {
+    height: 280px;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px 10px;
+  }
+  .stat-item:last-child {
+    border-bottom: none;
+  }
+  .mv-card {
+    padding: 30px 22px;
+  }
+  .value-card {
+    padding: 28px 22px;
+  }
+  .rel-box {
+    padding: 28px 22px;
+  }
+}
+
+/* Standard Mobile Devices (480px) */
+@media (max-width: 480px) {
+  .about-hero {
+    padding: 90px 0 40px;
+  }
+  .about-hero-title {
+    font-size: 2.05rem;
+    line-height: 1.2;
+  }
+  .about-hero-lead {
+    font-size: 0.98rem;
+  }
+  .editorial-grid {
+    gap: 28px;
+  }
+  .editorial-img-wrap img {
+    height: 240px;
+  }
+  .editorial-text h3 {
+    font-size: 1.55rem;
+  }
+  .editorial-text p {
+    font-size: 0.95rem;
+  }
+  .mv-card h3 {
+    font-size: 1.45rem;
+  }
+  .mv-card p {
+    font-size: 0.92rem;
+  }
+  .cta-banner-content {
+    padding: 36px 18px;
+  }
+  .cta-banner-title {
+    font-size: 1.65rem !important;
+  }
+  .cta-banner-desc {
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+  .stat-counter {
+    font-size: 2.5rem !important;
+  }
+  .modal-form-row,
+  .modal-body [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+}
+
+/* Small Mobile Devices (375px - iPhone X / 12 / 13 / 14 mini / SE) */
+@media (max-width: 375px) {
+  .about-hero {
+    padding: 85px 0 35px;
+  }
+  .about-hero-title {
+    font-size: 1.85rem;
+  }
+  .editorial-img-wrap img {
+    height: 210px;
+  }
+  .editorial-text h3 {
+    font-size: 1.4rem;
+  }
+  .mv-card {
+    padding: 24px 16px;
+  }
+  .mv-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+    margin-bottom: 18px;
+  }
+  .value-card {
+    padding: 22px 16px;
+  }
+  .rel-box {
+    padding: 22px 16px;
+  }
+  .team-card-body {
+    padding: 16px 14px;
+  }
+  .team-card-media {
+    height: 240px;
+  }
+}
+
+/* Extra Small Mobile Devices (320px - Galaxy Fold / iPhone 5/SE1) */
+@media (max-width: 320px) {
+  .about-hero-title {
+    font-size: 1.65rem;
+  }
+  .about-hero-lead {
+    font-size: 0.92rem;
+  }
+  .editorial-img-wrap img {
+    height: 180px;
+  }
+  .editorial-text h3 {
+    font-size: 1.3rem;
+  }
+  .mv-card h3 {
+    font-size: 1.3rem;
+  }
+  .value-number {
+    font-size: 1.8rem;
+  }
+  .value-card h4 {
+    font-size: 1.15rem;
+  }
+  .rel-box h4 {
+    font-size: 1.15rem;
+  }
+  .stat-counter {
+    font-size: 2.1rem !important;
+  }
+  .cta-banner-content {
+    padding: 28px 12px;
+  }
+  .cta-banner-title {
+    font-size: 1.45rem !important;
+  }
+}

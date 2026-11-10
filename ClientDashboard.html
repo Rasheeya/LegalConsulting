@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Client Advisory Portal — Stackly Legal &amp; Consulting.">
+  <title>Client Portal — Stackly Legal &amp; Consulting</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/client-dashboard.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-backdrop"></div>
+    <div class="preloader-content">
+      <div class="preloader-emblem">
+        <div class="preloader-ring"></div>
+        <div class="preloader-ring-outer"></div>
+        <img src="assets/logo-icon.png" alt="Stackly" class="preloader-logo-icon">
+      </div>
+      <div class="preloader-brand">
+        <span class="preloader-brand-title">Stackly</span>
+        <span class="preloader-brand-sub">Client Advisory Portal</span>
+      </div>
+      <div class="preloader-progress">
+        <div class="preloader-progress-fill"></div>
+      </div>
+      <div class="preloader-status">Accessing Matter Records...</div>
+    </div>
+  </div>
+  <script>
+    window.__preloaderStart = Date.now();
+    (function() {
+      var p = document.getElementById('preloader');
+      if (!p) return;
+      setTimeout(function() { if (p) p.classList.add('fade-out'); }, 1600);
+      setTimeout(function() {
+        if (p) {
+          p.style.display = 'none';
+          try { if (window.AOS) window.AOS.refresh(); } catch(e) {}
+        }
+      }, 2000);
+    })();
+  </script>
+
+  <div class="dashboard-layout">
+    <div class="dash-sidebar-overlay"></div>
+
+    <!-- Client Sidebar -->
+    <aside class="dash-sidebar" aria-label="Client Sidebar">
+      <div>
+        <div class="dash-sidebar-header">
+          <a href="index.html" class="brand-logo" style="text-decoration: none;" aria-label="Stackly Client Portal">
+            <div class="brand-logo-wrap">
+              <img src="assets/logo.png" alt="Stackly" class="brand-logo-img">
+              <span class="brand-subtitle">Client Portal</span>
+            </div>
+          </a>
+          <button class="dash-sidebar-close" aria-label="Close sidebar"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <nav class="dash-sidebar-menu">
+          <div class="dash-menu-heading">Client Navigation</div>
+          <a href="#" class="dash-menu-item active" data-view="dashboard">
+            <i class="fa-solid fa-table-columns"></i> Dashboard
+          </a>
+          <a href="#" class="dash-menu-item" data-view="consultations">
+            <i class="fa-solid fa-calendar-check"></i> My Consultations
+          </a>
+          <a href="#" class="dash-menu-item" data-view="book">
+            <i class="fa-solid fa-calendar-plus"></i> Book Consultation
+          </a>
+          <a href="#" class="dash-menu-item" data-view="cases">
+            <i class="fa-solid fa-briefcase"></i> My Cases
+          </a>
+          <a href="#" class="dash-menu-item" data-view="documents">
+            <i class="fa-solid fa-folder-open"></i> My Documents
+          </a>
+          <a href="#" class="dash-menu-item" data-view="messages">
+            <i class="fa-solid fa-comments"></i> Messages
+          </a>
+          <a href="#" class="dash-menu-item" data-view="settings">
+            <i class="fa-solid fa-user-gear"></i> Settings
+          </a>
+        </nav>
+      </div>
+
+      <div class="dash-sidebar-footer">
+        <button class="logout-btn">
+          <i class="fa-solid fa-power-off"></i> LOGOUT
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <div class="dash-main">
+      <!-- Client Header -->
+      <header class="dash-header">
+        <div class="dash-header-left">
+          <button class="dash-sidebar-toggle" aria-label="Open sidebar menu"><i class="fa-solid fa-bars"></i></button>
+          <a href="index.html" class="dash-mobile-logo" aria-label="Stackly Home">
+            <img src="assets/logo.png" alt="Stackly" class="dash-mobile-logo-img">
+          </a>
+          <div class="dash-search-input">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search my consultations, cases, or documents...">
+          </div>
+        </div>
+
+        <div class="dash-header-right">
+          <div class="dash-date-badge">
+            <i class="fa-regular fa-calendar"></i>
+            <span id="dashHeaderDate">Wednesday, Nov 4, 2026</span>
+          </div>
+
+          <button class="dash-notif-btn" onclick="window.DashboardBase.switchView('messages')" aria-label="View messages">
+            <i class="fa-regular fa-bell"></i>
+            <div class="notif-badge-dot"></div>
+          </button>
+
+          <div class="dash-profile-pill">
+            <div class="dash-profile-avatar">R</div>
+            <div class="dash-profile-meta">
+              <span class="dash-profile-name">Robert Chen</span>
+              <span class="dash-profile-role">Retained Client Portal</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Client Body Content -->
+      <main class="dash-content">
+
+        <!-- ==========================================
+             VIEW 1: CLIENT DASHBOARD OVERVIEW
+             ========================================== -->
+        <section id="view-dashboard" class="dash-view active">
+          <div class="dash-welcome-header">
+            <div class="dash-welcome-title-wrap">
+              <h1 class="dash-welcome-heading">Hello, R ! <span class="welcome-emblem">&#9878;&#65039;</span></h1>
+              <p class="dash-welcome-sub">Here is the fresh status of your legal cases and advisory briefs.</p>
+            </div>
+            <div class="dash-welcome-actions">
+              <button class="btn btn-primary btn-sm" onclick="window.DashboardBase.switchView('book')">
+                <i class="fa-solid fa-calendar-plus"></i> Book Consultation
+              </button>
+            </div>
+          </div>
+
+          <!-- KPI Cards -->
+          <div class="kpi-cards-grid">
+            <div class="kpi-card">
+              <div class="kpi-meta">
+                <h6>Upcoming Consultation</h6>
+                <div class="kpi-number" id="clientKpiUpcoming" data-val="2">2</div>
+                <div class="kpi-note">Next: Nov 12, 10:30 AM</div>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-calendar-check"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-meta">
+                <h6>Active Cases</h6>
+                <div class="kpi-number" id="clientKpiActive" data-val="3">3</div>
+                <div class="kpi-note" style="color: var(--gold);">1 Under Review</div>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-scale-balanced"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-meta">
+                <h6>Pending Requests</h6>
+                <div class="kpi-number" id="clientKpiPending" data-val="1">1</div>
+                <div class="kpi-note" style="color: var(--status-pending);">Briefing submitted</div>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-hourglass-half"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-meta">
+                <h6>Documents Available</h6>
+                <div class="kpi-number" id="clientKpiDocs" data-val="5">5</div>
+                <div class="kpi-note"><i class="fa-solid fa-check"></i> All briefs finalized</div>
+              </div>
+              <div class="kpi-icon-box"><i class="fa-solid fa-file-invoice"></i></div>
+            </div>
+          </div>
+
+          <!-- Recent Consultations Table -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">My Scheduled Consultations</h3>
+              <button class="btn btn-secondary btn-sm" onclick="window.DashboardBase.switchView('consultations')">
+                View All <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Reference</th>
+                    <th>Advisory Type</th>
+                    <th>Assigned Counsel</th>
+                    <th>Appointment Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="clientConsultTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Recommended Legal Services -->
+          <div style="margin-bottom: 32px;">
+            <div class="dash-view-header" style="margin-bottom: 16px;">
+              <h3 class="dash-card-title">Recommended Legal Services for Your Entity</h3>
+              <span class="badge badge-demo">Informational Advisory</span>
+            </div>
+            <div class="client-recommended-grid">
+              <div class="rec-service-card">
+                <div>
+                  <div class="rec-service-icon"><i class="fa-solid fa-landmark"></i></div>
+                  <h4>Corporate Advisory</h4>
+                  <p>Cross-border governance frameworks and annual compliance audits.</p>
+                </div>
+                <button class="btn btn-outline-gold btn-sm" onclick="window.ClientApp.prefillBookingFromRec('Corporate Advisory')">
+                  Request Briefing
+                </button>
+              </div>
+
+              <div class="rec-service-card">
+                <div>
+                  <div class="rec-service-icon"><i class="fa-solid fa-file-signature"></i></div>
+                  <h4>Contract Review</h4>
+                  <p>Comprehensive audit of indemnities, liability caps, and termination rights.</p>
+                </div>
+                <button class="btn btn-outline-gold btn-sm" onclick="window.ClientApp.prefillBookingFromRec('Contract Review')">
+                  Request Briefing
+                </button>
+              </div>
+
+              <div class="rec-service-card">
+                <div>
+                  <div class="rec-service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                  <h4>Business Compliance</h4>
+                  <p>AML/KYC regulatory certification and data privacy policy review.</p>
+                </div>
+                <button class="btn btn-outline-gold btn-sm" onclick="window.ClientApp.prefillBookingFromRec('Business Compliance')">
+                  Request Briefing
+                </button>
+              </div>
+
+              <div class="rec-service-card">
+                <div>
+                  <div class="rec-service-icon"><i class="fa-solid fa-rocket"></i></div>
+                  <h4>Startup Consultation</h4>
+                  <p>Cap table structuring, SAFEs, and investor term sheet negotiations.</p>
+                </div>
+                <button class="btn btn-outline-gold btn-sm" onclick="window.ClientApp.prefillBookingFromRec('Startup Consultation')">
+                  Request Briefing
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 2: MY CONSULTATIONS
+             ========================================= -->
+        <section id="view-consultations" class="dash-view">
+          <div class="dash-view-header">
+            <div class="dash-view-title">
+              <h2>My Legal Consultations</h2>
+              <p>View your scheduled advisory sessions, reschedule dates, or cancel pending bookings.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="window.DashboardBase.switchView('book')">
+              <i class="fa-solid fa-plus"></i> New Consultation Request
+            </button>
+          </div>
+
+          <!-- Consultations KPI Row -->
+          <div class="kpi-cards-grid" style="margin-bottom: 24px;">
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Total Booked Sessions</span>
+                <div class="kpi-icon"><i class="fa-solid fa-calendar-days"></i></div>
+              </div>
+              <div class="kpi-value">3</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-check"></i> Active client account</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Upcoming Briefing</span>
+                <div class="kpi-icon"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+              <div class="kpi-value">Nov 12</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-clock"></i> 10:30 AM EST (Confirmed)</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Retainer Hours Left</span>
+                <div class="kpi-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+              </div>
+              <div class="kpi-value">18.5 Hrs</div>
+              <div class="kpi-trend neutral"><i class="fa-solid fa-scale-balanced"></i> Of 25 Monthly Retainer</div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Reference</th>
+                    <th>Advisory Type</th>
+                    <th>Assigned Counsel</th>
+                    <th>Appointment Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="clientConsultTableBody2">
+                  <!-- Synced -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 3: BOOK A CONSULTATION
+             ========================================== -->
+        <section id="view-book" class="dash-view">
+          <div class="dash-view-header">
+            <div class="dash-view-title">
+              <h2>Book a Legal Consultation</h2>
+              <p>Reserve an advisory briefing with our corporate counsel panel. Fictional demonstration scheduling.</p>
+            </div>
+          </div>
+
+          <div class="dash-card" style="padding: 36px; max-width: 800px; margin: 0 auto;">
+            <!-- Booking Form -->
+            <form id="clientBookForm" novalidate>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                  <label class="form-label" for="clientBookType">Consultation Type *</label>
+                  <select id="clientBookType" class="form-control" required>
+                    <option value="Initial Advisory Briefing">Initial Advisory Briefing (60 min)</option>
+                    <option value="Contract Review Session">Contract Review Session (45 min)</option>
+                    <option value="Corporate Governance Audit">Corporate Governance Audit (90 min)</option>
+                    <option value="Regulatory Compliance Inquest">Regulatory Compliance Inquest</option>
+                  </select>
+                  <div class="form-error-msg"></div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="clientBookPractice">Practice Area *</label>
+                  <select id="clientBookPractice" class="form-control" required>
+                    <option value="Corporate Law">Corporate Law &amp; Governance</option>
+                    <option value="Commercial Law">Commercial &amp; Business Law</option>
+                    <option value="Contract Law">Contract Drafting &amp; Review</option>
+                    <option value="Employment Law">Employment &amp; Labour Law</option>
+                    <option value="Intellectual Property">Intellectual Property</option>
+                    <option value="Dispute Resolution">Dispute Resolution &amp; Arbitration</option>
+                    <option value="Business Compliance">Business Compliance &amp; Audits</option>
+                  </select>
+                  <div class="form-error-msg"></div>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                  <label class="form-label" for="clientBookDate">Preferred Date *</label>
+                  <input type="date" id="clientBookDate" class="form-control" required>
+                  <div class="form-error-msg"></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="clientBookTime">Preferred Time Slot *</label>
+                  <select id="clientBookTime" class="form-control" required>
+                    <option value="09:00 AM">09:00 AM - 10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM - 12:00 PM</option>
+                    <option value="02:00 PM">02:00 PM - 03:00 PM</option>
+                    <option value="04:00 PM">04:00 PM - 05:00 PM</option>
+                  </select>
+                  <div class="form-error-msg"></div>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                  <label class="form-label" for="clientBookName">Full Legal / Organization Name *</label>
+                  <input type="text" id="clientBookName" class="form-control" value="Nexus Global Holdings" required>
+                  <div class="form-error-msg"></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="clientBookEmail">Corporate Email *</label>
+                  <input type="email" id="clientBookEmail" class="form-control" value="legal@nexusglobal.demo" required>
+                  <div class="form-error-msg"></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="clientBookPhone">Contact Telephone *</label>
+                <input type="tel" id="clientBookPhone" class="form-control" value="+1 (555) 234-8901" required>
+                <div class="form-error-msg"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="clientBookNotes">Brief Matter Summary (Optional)</label>
+                <textarea id="clientBookNotes" class="form-control" rows="3" placeholder="Outline your corporate requirements or transaction background..."></textarea>
+                <div class="form-error-msg"></div>
+              </div>
+
+              <div style="background: var(--ivory); padding: 14px; border-radius: 6px; margin-bottom: 24px; font-size: 0.8rem; color: var(--text-muted);">
+                <i class="fa-solid fa-circle-info" style="color: var(--gold);"></i> <strong>Notice:</strong> This is a frontend demonstration booking interface. Scheduled appointments are saved in your local browser demonstration storage.
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <i class="fa-regular fa-calendar-check"></i> CONFIRM DEMO CONSULTATION
+              </button>
+            </form>
+
+            <!-- Booking Confirmation Screen -->
+            <div id="bookingConfirmScreen" class="booking-confirmed-card">
+              <div class="booking-confirmed-icon"><i class="fa-solid fa-check"></i></div>
+              <h3 style="font-size: 1.8rem; color: var(--navy); margin-bottom: 8px;">Consultation Confirmed!</h3>
+              <p style="color: var(--text-muted); font-size: 0.95rem;">
+                Your consultation demonstration request has been successfully recorded in local storage.
+              </p>
+              <div id="confirmedRefPill" class="confirmed-ref-pill">Booking Reference: CONS-8926</div>
+              <p id="confirmedDetailsText" style="font-size: 0.9rem; color: var(--text-dark); margin-bottom: 28px;"></p>
+
+              <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+                <button type="button" class="btn btn-primary btn-sm" onclick="window.DashboardBase.switchView('consultations')">
+                  View in My Consultations
+                </button>
+                <button type="button" id="bookAnotherBtn" class="btn btn-secondary btn-sm">
+                  Book Another Session
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 4: MY CASES
+             ========================================== -->
+        <section id="view-cases" class="dash-view">
+          <div class="dash-view-header">
+            <div class="dash-view-title">
+              <h2>My Legal Matters &amp; Cases</h2>
+              <p>Track the 5-stage progress of your active legal briefs and corporate advisory files.</p>
+            </div>
+          </div>
+
+          <!-- Cases KPI Row -->
+          <div class="kpi-cards-grid" style="margin-bottom: 24px;">
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Active Briefs</span>
+                <div class="kpi-icon"><i class="fa-solid fa-briefcase"></i></div>
+              </div>
+              <div class="kpi-value">2</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-gavel"></i> Lead counsel assigned</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">In Strategy &amp; Review</span>
+                <div class="kpi-icon"><i class="fa-solid fa-bars-progress"></i></div>
+              </div>
+              <div class="kpi-value">Stage 3</div>
+              <div class="kpi-trend neutral"><i class="fa-solid fa-hourglass-half"></i> 65% completed</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Past Concluded Briefs</span>
+                <div class="kpi-icon"><i class="fa-solid fa-circle-check"></i></div>
+              </div>
+              <div class="kpi-value">4</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-award"></i> Successfully finalized</div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Case Reference</th>
+                    <th>Matter Description</th>
+                    <th>Assigned Lead</th>
+                    <th>Commenced Date</th>
+                    <th>Status</th>
+                    <th>Stage Action</th>
+                  </tr>
+                </thead>
+                <tbody id="clientCasesTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 5: MY DOCUMENTS
+             ========================================== -->
+        <section id="view-documents" class="dash-view">
+          <div class="dash-view-header">
+            <div class="dash-view-title">
+              <h2>My Shared Documents</h2>
+              <p>Access finalized legal agreements, executed contracts, and consultation advisory notes.</p>
+            </div>
+          </div>
+
+          <!-- Documents KPI Row -->
+          <div class="kpi-cards-grid" style="margin-bottom: 24px;">
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Executed Agreements</span>
+                <div class="kpi-icon"><i class="fa-solid fa-file-signature"></i></div>
+              </div>
+              <div class="kpi-value">8</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-check"></i> Fully executed</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Draft Briefings</span>
+                <div class="kpi-icon"><i class="fa-solid fa-file-lines"></i></div>
+              </div>
+              <div class="kpi-value">3</div>
+              <div class="kpi-trend neutral"><i class="fa-solid fa-clock"></i> Client review pending</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Vault Storage</span>
+                <div class="kpi-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              </div>
+              <div class="kpi-value">28.4 MB</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-lock"></i> Encrypted custody</div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="table-responsive">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Document Name</th>
+                    <th>Classification</th>
+                    <th>Related Case</th>
+                    <th>Date Uploaded</th>
+                    <th>Status</th>
+                    <th>Access</th>
+                  </tr>
+                </thead>
+                <tbody id="clientDocsTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 6: MESSAGES
+             ========================================== -->
+        <section id="view-messages" class="dash-view">
+          <div class="dash-view-header">
+            <div class="dash-view-title">
+              <h2>Advisory Notifications &amp; Messages</h2>
+              <p>Direct communication and status dispatch from your appointed legal counsel.</p>
+            </div>
+          </div>
+
+          <!-- Messages KPI Row -->
+          <div class="kpi-cards-grid" style="margin-bottom: 24px;">
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Active Counsel Threads</span>
+                <div class="kpi-icon"><i class="fa-solid fa-comments"></i></div>
+              </div>
+              <div class="kpi-value">3</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-circle-check"></i> All responded</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Assigned Lead Partner</span>
+                <div class="kpi-icon"><i class="fa-solid fa-user-tie"></i></div>
+              </div>
+              <div class="kpi-value" style="font-size: 1.15rem;">Sarah Jenkins, Esq.</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-circle" style="color: #10b981; font-size: 0.55rem;"></i> Active on file</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card-top">
+                <span class="kpi-title">Average SLA Response</span>
+                <div class="kpi-icon"><i class="fa-solid fa-clock"></i></div>
+              </div>
+              <div class="kpi-value">&lt; 2 Hours</div>
+              <div class="kpi-trend positive"><i class="fa-solid fa-bolt"></i> Priority enterprise retainer</div>
+            </div>
+          </div>
+
+          <div class="notif-list" id="clientMsgList">
+            <!-- Populated by JS -->
+          </div>
+
+          <!-- Interactive Message Reply Composer -->
+          <div class="dash-card" style="margin-top: 24px; padding: 24px;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <i class="fa-solid fa-paper-plane" style="color: var(--gold);"></i> Send Dispatch to Assigned Counsel
+            </h3>
+            <form id="clientDispatchForm" novalidate>
+              <div class="form-group" style="margin-bottom: 14px;">
+                <textarea id="clientDispatchText" class="form-control" rows="3" placeholder="Compose inquiry or matter brief update for counsel..." style="resize: vertical;" required></textarea>
+                <div class="form-error-msg" id="clientDispatchError"></div>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                <span style="font-size: 0.78rem; color: var(--text-muted);">
+                  <i class="fa-solid fa-lock"></i> Direct SSL simulated communication with partner desk.
+                </span>
+                <button type="submit" class="btn btn-primary btn-sm">
+                  <i class="fa-solid fa-paper-plane"></i> Send Dispatch
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 7: SETTINGS
+             ========================================== -->
+        <section id="view-settings" class="dash-view">
+          <div class="dash-view-header">
+            <div class="dash-view-title">
+              <h2>Client Account Settings</h2>
+              <p>Manage corporate representative credentials, primary email dispatch, and privacy preferences.</p>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <div class="dash-card" style="padding: 28px;">
+              <h3 style="font-size: 1.25rem; margin-bottom: 18px;">Client Representative Profile</h3>
+              <form id="clientSettingsForm" novalidate>
+                <div class="form-group">
+                  <label class="form-label" for="clientSettingsOrg">Client Organization *</label>
+                  <input type="text" id="clientSettingsOrg" class="form-control" value="Nexus Global Holdings" required>
+                  <div class="form-error-msg"></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="clientSettingsRep">Authorized Legal Representative *</label>
+                  <input type="text" id="clientSettingsRep" class="form-control" value="Jonathan Sterling, VP Legal" required>
+                  <div class="form-error-msg"></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="clientSettingsEmail">Corporate Email *</label>
+                  <input type="email" id="clientSettingsEmail" class="form-control" value="legal@nexusglobal.demo" required>
+                  <div class="form-error-msg"></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="clientSettingsPhone">Contact Telephone *</label>
+                  <input type="tel" id="clientSettingsPhone" class="form-control" value="+1 (555) 234-8901" required>
+                  <div class="form-error-msg"></div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Save Account Details</button>
+              </form>
+            </div>
+
+            <div class="dash-card" style="padding: 28px;">
+              <h3 style="font-size: 1.25rem; margin-bottom: 18px;">Retained Firm Headquarters</h3>
+              <div class="form-group">
+                <label class="form-label">Consulting Firm</label>
+                <input type="text" class="form-control" value="Stackly Legal &amp; Consulting" readonly>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Registered Office Address</label>
+                <input type="text" class="form-control" value="MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008" readonly>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Toll-Free Helpline</label>
+                <input type="text" class="form-control" value="1800789456" readonly>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Official Email</label>
+                <input type="text" class="form-control" value="info@stackly.com" readonly>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Client Consultation View Modal -->
+  <div id="clientConsultModal" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Consultation Details</h3>
+        <button class="modal-close-btn" data-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="clientConsultModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Client Reschedule Modal -->
+  <div id="clientRescheduleModal" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Reschedule Consultation</h3>
+        <button class="modal-close-btn" data-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="clientRescheduleForm" novalidate>
+        <div class="modal-body">
+          <input type="hidden" id="clientRescheduleId">
+          <div class="form-group">
+            <label class="form-label" for="clientRescheduleDate">Preferred Date *</label>
+            <input type="date" id="clientRescheduleDate" class="form-control" required>
+            <div class="form-error-msg"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="clientRescheduleTime">Preferred Time Slot *</label>
+            <select id="clientRescheduleTime" class="form-control" required>
+              <option value="">Select a time slot...</option>
+              <option value="09:00 AM">09:00 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="02:00 PM">02:00 PM</option>
+              <option value="04:00 PM">04:00 PM</option>
+            </select>
+            <div class="form-error-msg"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Confirm Reschedule</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 5-STAGE CASE TIMELINE MODAL -->
+  <div id="caseTimelineModal" class="modal-backdrop">
+    <div class="modal-card" style="max-width: 780px;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="timelineCaseTitle">Matter Progress</h3>
+          <span class="badge badge-demo" id="timelineCaseRef">CASE-2026-041</span>
+        </div>
+        <button class="modal-close-btn" data-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.9rem; color: var(--text-dark); margin-bottom: 24px;" id="timelineCaseDesc"></p>
+
+        <!-- 5-Stage Visual Timeline -->
+        <div class="case-progress-wrap">
+          <div class="timeline-5-stage">
+            <div class="timeline-track-bg">
+              <div class="timeline-track-fill" id="timelineTrackFill" style="width: 60%;"></div>
+            </div>
+
+            <!-- Stage 1 -->
+            <div class="timeline-stage-node completed" id="stageNode-1">
+              <div class="node-dot"><i class="fa-solid fa-check"></i></div>
+              <div class="node-label">1. Request Received</div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="timeline-stage-node completed" id="stageNode-2">
+              <div class="node-dot"><i class="fa-solid fa-check"></i></div>
+              <div class="node-label">2. Initial Review</div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="timeline-stage-node current" id="stageNode-3">
+              <div class="node-dot">3</div>
+              <div class="node-label">3. Consultation Completed</div>
+            </div>
+
+            <!-- Stage 4 -->
+            <div class="timeline-stage-node" id="stageNode-4">
+              <div class="node-dot">4</div>
+              <div class="node-label">4. Work in Progress</div>
+            </div>
+
+            <!-- Stage 5 -->
+            <div class="timeline-stage-node" id="stageNode-5">
+              <div class="node-dot">5</div>
+              <div class="node-label">5. Closed</div>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size: 0.78rem; color: var(--text-muted); font-style: italic; text-align: center;">
+          <i class="fa-solid fa-circle-info"></i> Notice: The displayed progression stages represent internal demonstration workflows and do not reflect formal judicial or court milestones.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/client-dashboard.js"></script>
+</body>
+</html>

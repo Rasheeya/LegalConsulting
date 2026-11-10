@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure Client and Admin Portal Login — Stackly Legal &amp; Consulting.">
+  <title>Portal Login — Stackly Legal &amp; Consulting</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-backdrop"></div>
+    <div class="preloader-content">
+      <div class="preloader-emblem">
+        <div class="preloader-ring"></div>
+        <div class="preloader-ring-outer"></div>
+        <img src="assets/logo-icon.png" alt="Stackly" class="preloader-logo-icon">
+      </div>
+      <div class="preloader-brand">
+        <span class="preloader-brand-title">Stackly</span>
+        <span class="preloader-brand-sub">Advisory &amp; Client Portal</span>
+      </div>
+      <div class="preloader-progress">
+        <div class="preloader-progress-fill"></div>
+      </div>
+      <div class="preloader-status">Authenticating Session...</div>
+    </div>
+  </div>
+  <script>
+    window.__preloaderStart = Date.now();
+    (function() {
+      var p = document.getElementById('preloader');
+      if (!p) return;
+      setTimeout(function() { if (p) p.classList.add('fade-out'); }, 1600);
+      setTimeout(function() {
+        if (p) {
+          p.style.display = 'none';
+          try { if (window.AOS) window.AOS.refresh(); } catch(e) {}
+        }
+      }, 2000);
+    })();
+  </script>
+
+  <div class="auth-wrapper">
+    <!-- Left Hero Visual Side -->
+    <div class="auth-visual">
+      <div class="auth-visual-media">
+        <img src="assets/auth-bg.webp" alt="Corporate Law Firm Library and Boardroom">
+      </div>
+      <div class="auth-visual-overlay"></div>
+
+      <div class="auth-visual-content">
+        <a href="index.html" class="auth-brand-logo" aria-label="Stackly Legal &amp; Consulting">
+          <div class="brand-logo-wrap">
+            <img src="assets/logo.png" alt="Stackly" class="brand-logo-img">
+            <span class="brand-subtitle">Legal &amp; Consulting</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="auth-quote-box">
+        <p class="auth-quote-text">
+          "The life of the law has not been logic: it has been experience."
+        </p>
+        <div class="auth-quote-author">— Legal Jurisprudence Maxim</div>
+      </div>
+
+      <div class="auth-visual-footer">
+        &copy; 2026 Stackly Demonstration Portal Interface. Simulated environment only.
+      </div>
+    </div>
+
+    <!-- Right Form Side -->
+    <div class="auth-form-side" data-aos="fade-left" data-aos-duration="750">
+      <div>
+        <div class="auth-top-nav">
+          <a href="index.html" class="back-home-link">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+          </a>
+          <span class="badge badge-demo">Demo Portal</span>
+        </div>
+
+        <div class="auth-header">
+          <h1 class="auth-title">Welcome Back</h1>
+          <p class="auth-subtitle">Select your account role and enter your credentials to access your portal.</p>
+        </div>
+
+        <!-- Role Toggle: Admin / Client -->
+        <div class="role-toggle-group">
+          <button type="button" class="role-toggle-btn active" data-role="admin">
+            <i class="fa-solid fa-user-shield"></i> Administration
+          </button>
+          <button type="button" class="role-toggle-btn" data-role="client">
+            <i class="fa-solid fa-user-tie"></i> Client Portal
+          </button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" novalidate>
+          <input type="hidden" id="authRoleInput" value="admin">
+
+          <div class="form-group">
+            <label class="form-label" for="loginEmail">Email Address / User ID *</label>
+            <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email or user ID" required autocomplete="username">
+            <div class="form-error-msg"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="loginPassword">Password *</label>
+            <div class="password-input-wrap">
+              <input type="password" id="loginPassword" class="form-control" placeholder="Enter password (min 8 chars, uppercase & number)" required autocomplete="current-password">
+              <button type="button" class="password-toggle-btn" aria-label="Toggle password visibility">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+            <div class="form-error-msg"></div>
+          </div>
+
+          <div class="form-helper-row">
+            <label class="remember-checkbox">
+              <input type="checkbox" id="loginRemember" checked>
+              <span>Remember this session</span>
+            </label>
+            <a href="404.html" class="forgot-pwd-link">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> LOGIN TO PORTAL
+          </button>
+        </form>
+
+        <div class="auth-bottom-switch">
+          Don't have an account yet? <a href="Signup.html">Create an Account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

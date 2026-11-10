@@ -1,0 +1,255 @@
+/* ==========================================================================
+   LEGAL & CONSULTING — CLIENT DASHBOARD STYLES (client-dashboard.css)
+   ========================================================================== */
+
+/* 5-Stage Case Progress Timeline */
+.case-progress-wrap {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 28px 24px;
+  margin-bottom: 24px;
+}
+
+.case-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.case-progress-header h4 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--navy);
+  margin: 0;
+}
+
+.timeline-5-stage {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: relative;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.timeline-track-bg {
+  position: absolute;
+  top: 20px;
+  left: 10%;
+  width: 80%;
+  height: 4px;
+  background: #E2E8F0;
+  z-index: 1;
+}
+
+.timeline-track-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--gold);
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-stage-node {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.node-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid #CBD5E1;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: all var(--transition-normal);
+}
+
+.timeline-stage-node.completed .node-dot {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--navy-dark);
+}
+
+.timeline-stage-node.current .node-dot {
+  background: var(--navy);
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 0 5px rgba(176, 141, 87, 0.25);
+}
+
+.node-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.timeline-stage-node.current .node-label,
+.timeline-stage-node.completed .node-label {
+  color: var(--navy);
+}
+
+/* Recommended Services in Client Portal */
+.client-recommended-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.rec-service-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 24px 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rec-service-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background: var(--ivory);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.rec-service-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.rec-service-card p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+/* Booking Confirmation Screen */
+.booking-confirmed-card {
+  display: none;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 40px;
+  border-top: 4px solid var(--status-completed);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.booking-confirmed-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(42, 126, 79, 0.12);
+  color: var(--status-completed);
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.confirmed-ref-pill {
+  display: inline-block;
+  padding: 8px 18px;
+  background: var(--ivory);
+  border: 1px dashed var(--gold);
+  border-radius: 20px;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--navy);
+  margin: 16px 0 24px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .client-recommended-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-5-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .timeline-stage-node {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+  }
+  .node-dot {
+    margin: 0 !important;
+    min-width: 38px;
+    width: 38px;
+    height: 38px;
+  }
+  .node-label {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+  .timeline-track-bg {
+    display: none;
+  }
+  .client-recommended-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .case-progress-wrap {
+    padding: 18px 16px;
+  }
+}
+
+/* ==========================================================================
+   CLIENT PORTAL SPECIFIC LUXURY POLISH
+   ========================================================================== */
+.client-recommended-card {
+  border-top: 3px solid var(--gold);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.client-recommended-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(20, 43, 59, 0.08);
+}
+
+.doc-item {
+  border-left: 2px solid transparent;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.doc-item:hover {
+  border-left-color: var(--gold);
+  background-color: rgba(176, 141, 87, 0.04);
+  transform: translateX(2px);
+}
+
+.confirmed-ref-pill {
+  box-shadow: 0 2px 12px rgba(176, 141, 87, 0.2);
+}

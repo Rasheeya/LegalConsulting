@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read the latest legal insights, regulatory commentary, and corporate advisory briefings from the partners at Stackly Legal &amp; Consulting.">
+  <title>Legal Insights &amp; Briefings | Stackly Legal &amp; Consulting</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation Library CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- Core & Page Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-backdrop"></div>
+    <div class="preloader-content">
+      <div class="preloader-emblem">
+        <div class="preloader-ring"></div>
+        <div class="preloader-ring-outer"></div>
+        <img src="assets/logo-icon.png" alt="Stackly" class="preloader-logo-icon">
+      </div>
+      <div class="preloader-brand">
+        <span class="preloader-brand-title">Stackly</span>
+        <span class="preloader-brand-sub">Legal Insights &amp; Briefings</span>
+      </div>
+      <div class="preloader-progress">
+        <div class="preloader-progress-fill"></div>
+      </div>
+      <div class="preloader-status">Loading Advisory Insights...</div>
+    </div>
+  </div>
+  <script>
+    window.__preloaderStart = Date.now();
+    (function() {
+      var p = document.getElementById('preloader');
+      if (!p) return;
+      setTimeout(function() { if (p) p.classList.add('fade-out'); }, 1600);
+      setTimeout(function() {
+        if (p) {
+          p.style.display = 'none';
+          try { if (window.AOS) window.AOS.refresh(); } catch(e) {}
+        }
+      }, 2000);
+    })();
+  </script>
+
+  <!-- ==========================================
+       COMMON NAVBAR
+       ========================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Legal &amp; Consulting">
+        <div class="brand-logo-wrap">
+          <img src="assets/logo.png" alt="Stackly" class="brand-logo-img">
+          <span class="brand-subtitle">Legal &amp; Consulting</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="Services.html" class="nav-link">Services</a>
+        <a href="Blog.html" class="nav-link active">Blog</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="Login.html" class="nav-login-btn">
+          <i class="fa-regular fa-user"></i> Login
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Off-Canvas Drawer -->
+  <div class="mobile-nav-overlay"></div>
+  <aside class="mobile-nav" aria-label="Mobile Navigation">
+    <div class="mobile-menu-links">
+      <a href="index.html" class="mobile-nav-link">Home <i class="fa-solid fa-angle-right"></i></a>
+      <a href="About.html" class="mobile-nav-link">About <i class="fa-solid fa-angle-right"></i></a>
+      <a href="Services.html" class="mobile-nav-link">Services <i class="fa-solid fa-angle-right"></i></a>
+      <a href="Blog.html" class="mobile-nav-link active">Blog <i class="fa-solid fa-angle-right"></i></a>
+      <a href="Contact.html" class="mobile-nav-link">Contact <i class="fa-solid fa-angle-right"></i></a>
+    </div>
+    <div class="mobile-nav-actions">
+      <a href="Login.html" class="mobile-login-btn">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i> Client &amp; Admin Login
+      </a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==========================================
+         1. BLOG HERO & FEATURED SPOTLIGHT
+         ========================================== -->
+    <section class="blog-hero">
+      <div class="container">
+        <div class="blog-hero-header" data-aos="fade-up" data-aos-duration="800">
+          <span class="section-subtitle">LEGAL BRIEFINGS &amp; STRATEGIC INSIGHTS</span>
+          <h1 class="display-title">Executive Commentary, Regulatory Trends &amp; Legal Analysis</h1>
+          <p class="section-desc">
+            Authoritative analysis from Stackly partners covering corporate governance, cross-border commercial transactions, M&amp;A risk allocation, regulatory compliance, and statutory reforms.
+          </p>
+        </div>
+
+        <!-- Featured Article Card -->
+        <article class="featured-article-card" data-article-id="cross-border-mergers" style="cursor: pointer;" data-aos="fade-up" data-aos-duration="850" data-aos-delay="150">
+          <div class="featured-media">
+            <img src="assets/hero-legal-office.webp" alt="Cross-Border Mergers in 2026">
+            <span class="featured-badge">Featured Lead Briefing</span>
+          </div>
+          <div class="featured-content">
+            <div class="article-meta-row">
+              <span><i class="fa-solid fa-layer-group"></i> Corporate Governance</span>
+              <span>•</span>
+              <span><i class="fa-regular fa-clock"></i> 6 min read</span>
+              <span>•</span>
+              <span>November 3, 2026</span>
+            </div>
+            <h2 class="featured-title">
+              Cross-Border Mergers in 2026: Navigating Tightening Antitrust Scrutiny and FDI Clearance
+            </h2>
+            <p class="featured-excerpt">
+              A comprehensive briefing on multi-jurisdiction compliance hurdles, expanding national security review standards, hell-or-high-water provisions, and tactical mitigations for multinational acquisitions.
+            </p>
+            <div class="featured-author-box">
+              <div class="author-chip">
+                <img src="assets/team-partner-1.webp" alt="Sarah Jenkins, Esq.">
+                <div>
+                  <div class="author-name">Sarah Jenkins, Esq.</div>
+                  <div class="author-role">Managing Partner — Stackly</div>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-sm" style="pointer-events: none;">
+                Read Briefing <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         2. ARTICLES GRID
+         ========================================== -->
+    <section class="blog-grid-section">
+      <div class="container">
+        <div class="blog-grid" id="blogGrid">
+
+          <!-- Article 1 -->
+          <article class="blog-card" data-category="Commercial Law" data-article-id="executive-severance">
+            <div class="blog-card-media">
+              <img src="assets/practice-employment.webp" alt="Executive Severance Agreements">
+              <span class="blog-card-category">Commercial Law</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> October 28, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+              </div>
+              <h3 class="blog-card-title">The Evolution of Executive Severance Agreements under Emerging Labor Directives</h3>
+              <p class="blog-card-excerpt">
+                Practical considerations for drafting enforceable restrictive covenants, tailored non-solicitation clauses, and arbitration terms for C-suite personnel.
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <img src="assets/team-partner-2.webp" alt="Elena Rostova">
+                  <span class="blog-card-author-name">Elena Rostova, Esq.</span>
+                </div>
+                <button class="blog-read-btn">Read <i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="blog-card" data-category="Regulatory Compliance" data-article-id="ai-data-governance">
+            <div class="blog-card-media">
+              <img src="assets/practice-compliance.webp" alt="AI & Data Governance Compliance">
+              <span class="blog-card-category">Regulatory Compliance</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> October 22, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+              </div>
+              <h3 class="blog-card-title">Navigating Mandatory AI &amp; Data Governance Compliance for Financial Institutions</h3>
+              <p class="blog-card-excerpt">
+                How corporate boards and risk officers should structure algorithmic auditing, automated decision tracking, and statutory transparency disclosures.
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <img src="assets/team-partner-5.webp" alt="Marcus Sterling">
+                  <span class="blog-card-author-name">Marcus Sterling</span>
+                </div>
+                <button class="blog-read-btn">Read <i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="blog-card" data-category="Mergers & Acquisitions" data-article-id="mae-clauses">
+            <div class="blog-card-media">
+              <img src="assets/practice-corporate.webp" alt="Material Adverse Effect Clauses">
+              <span class="blog-card-category">Mergers &amp; Acquisitions</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> October 16, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 6 min read</span>
+              </div>
+              <h3 class="blog-card-title">Mastering Material Adverse Effect (MAE) Clauses in Volatile Markets</h3>
+              <p class="blog-card-excerpt">
+                Examining how judicial interpretations of MAE standards have shifted risk allocation, specific industry carve-outs, and disproportionate impact qualifiers.
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <img src="assets/team-partner-3.webp" alt="David Thorne">
+                  <span class="blog-card-author-name">David Thorne</span>
+                </div>
+                <button class="blog-read-btn">Read <i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="blog-card" data-category="Intellectual Property" data-article-id="trade-secrets-remote">
+            <div class="blog-card-media">
+              <img src="assets/practice-ip.webp" alt="Trade Secrets Protection">
+              <span class="blog-card-category">Intellectual Property</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> October 10, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 4 min read</span>
+              </div>
+              <h3 class="blog-card-title">Protecting Proprietary Trade Secrets in Decentralized &amp; Remote Operations</h3>
+              <p class="blog-card-excerpt">
+                Crucial legal safeguards, NDAs, and role-based policies required by courts to meet the statutory 'reasonable efforts' standard for trade secret preservation.
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <img src="assets/team-partner-4.webp" alt="Clara Vance">
+                  <span class="blog-card-author-name">Clara Vance, LL.M.</span>
+                </div>
+                <button class="blog-read-btn">Read <i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 5 -->
+          <article class="blog-card" data-category="Commercial Law" data-article-id="lease-renegotiations">
+            <div class="blog-card-media">
+              <img src="assets/practice-realestate.webp" alt="Commercial Lease Renegotiations">
+              <span class="blog-card-category">Commercial Law</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> September 29, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+              </div>
+              <h3 class="blog-card-title">Commercial Lease Renegotiations and Subletting Rights for Growth Companies</h3>
+              <p class="blog-card-excerpt">
+                Essential levers for tenant organizations seeking footprint adjustments, assignment clauses, parent guarantee releases, and space contraction options.
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <img src="assets/team-partner-2.webp" alt="Elena Rostova">
+                  <span class="blog-card-author-name">Elena Rostova, Esq.</span>
+                </div>
+                <button class="blog-read-btn">Read <i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 6 -->
+          <article class="blog-card" data-category="Corporate Governance" data-article-id="esg-reporting-board">
+            <div class="blog-card-media">
+              <img src="assets/meeting-room.webp" alt="Statutory ESG Reporting">
+              <span class="blog-card-category">Corporate Governance</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> September 18, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 8 min read</span>
+              </div>
+              <h3 class="blog-card-title">Statutory ESG Reporting Obligations: What Every Board Director Needs to Know</h3>
+              <p class="blog-card-excerpt">
+                Unpacking regulatory disclosure shifts across global frameworks regarding supply-chain diligence, Scope 3 assurance, and director fiduciary exposure.
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <img src="assets/team-partner-1.webp" alt="Sarah Jenkins">
+                  <span class="blog-card-author-name">Sarah Jenkins, Esq.</span>
+                </div>
+                <button class="blog-read-btn">Read <i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 7 -->
+          <article class="blog-card" data-category="Contract Advisory" data-article-id="dispute-resolution-clauses">
+            <div class="blog-card-media">
+              <img src="assets/practice-dispute.webp" alt="Dispute Resolution Clauses">
+              <span class="blog-card-category">Contract Advisory</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> September 09, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+              </div>
+              <h3 class="blog-card-title">Drafting Dispute Resolution &amp; Multi-Tiered Arbitration Clauses That Hold Up</h3>
+              <p class="blog-card-excerpt">
+                Avoiding pathological drafting errors in mediation-arbitration step-clauses, distinguishing juridical seat from venue, and emergency relief carve-outs.
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <img src="assets/team-partner-3.webp" alt="David Thorne">
+                  <span class="blog-card-author-name">David Thorne</span>
+                </div>
+                <button class="blog-read-btn">Read <i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 8 -->
+          <article class="blog-card" data-category="Mergers & Acquisitions" data-article-id="capital-restructuring">
+            <div class="blog-card-media">
+              <img src="assets/business-consulting.webp" alt="Capital Restructuring Strategies">
+              <span class="blog-card-category">Mergers &amp; Acquisitions</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> August 26, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+              </div>
+              <h3 class="blog-card-title">Capital Restructuring Strategies for Mid-Market Enterprises Facing Credit Tightening</h3>
+              <p class="blog-card-excerpt">
+                Senior debt restructuring, covenant waivers, and structured mezzanine interventions designed to preserve corporate liquidity and stakeholder value.
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <img src="assets/team-partner-5.webp" alt="Marcus Sterling">
+                  <span class="blog-card-author-name">Marcus Sterling</span>
+                </div>
+                <button class="blog-read-btn">Read <i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 9 -->
+          <article class="blog-card" data-category="Corporate Governance" data-article-id="digital-tax-structuring">
+            <div class="blog-card-media">
+              <img src="assets/corporate-law.webp" alt="Cross-Border Tax Structuring">
+              <span class="blog-card-category">Corporate Governance</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> August 14, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 6 min read</span>
+              </div>
+              <h3 class="blog-card-title">Cross-Border Tax Structuring &amp; Permanent Establishment Safeguards in Digital Commerce</h3>
+              <p class="blog-card-excerpt">
+                Critical analysis of OECD Pillar Two global minimum tax standards, digital presence nexus rules, and risk allocation in multi-jurisdictional supply contracts.
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <img src="assets/team-partner-1.webp" alt="Sarah Jenkins">
+                  <span class="blog-card-author-name">Sarah Jenkins, Esq.</span>
+                </div>
+                <button class="blog-read-btn">Read <i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 10 -->
+          <article class="blog-card" data-category="Intellectual Property" data-article-id="ai-licensing-msa">
+            <div class="blog-card-media">
+              <img src="assets/practice-ip.webp" alt="AI Licensing in Enterprise MSAs">
+              <span class="blog-card-category">Intellectual Property</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> August 02, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+              </div>
+              <h3 class="blog-card-title">AI Licensing &amp; Foundation Model Warranties in Enterprise Master Service Agreements</h3>
+              <p class="blog-card-excerpt">
+                Structuring enforceable copyright indemnification caps, model weights governance, confidential training exclusions, and IP escrow provisions.
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <img src="assets/team-partner-4.webp" alt="Clara Vance">
+                  <span class="blog-card-author-name">Clara Vance, LL.M.</span>
+                </div>
+                <button class="blog-read-btn">Read <i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 11 -->
+          <article class="blog-card" data-category="Regulatory Compliance" data-article-id="whistleblower-investigations">
+            <div class="blog-card-media">
+              <img src="assets/meeting-room.webp" alt="Whistleblower Protocols & Internal Investigations">
+              <span class="blog-card-category">Regulatory Compliance</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> July 21, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+              </div>
+              <h3 class="blog-card-title">Whistleblower Protocols &amp; Internal Investigations Under Modern Corporate Directives</h3>
+              <p class="blog-card-excerpt">
+                Establishing attorney-client privileged internal audit frameworks, forensic digital evidence preservation, and mandatory statutory escalation timelines.
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <img src="assets/team-partner-5.webp" alt="Marcus Sterling">
+                  <span class="blog-card-author-name">Marcus Sterling</span>
+                </div>
+                <button class="blog-read-btn">Read <i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 12 -->
+          <article class="blog-card" data-category="Mergers & Acquisitions" data-article-id="minority-shareholder-rights">
+            <div class="blog-card-media">
+              <img src="assets/practice-corporate.webp" alt="Minority Shareholder Rights">
+              <span class="blog-card-category">Mergers &amp; Acquisitions</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar"></i> July 08, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 6 min read</span>
+              </div>
+              <h3 class="blog-card-title">Structuring Minority Shareholder Rights and Drag-Along / Tag-Along Protections</h3>
+              <p class="blog-card-excerpt">
+                Strategic drafting of veto rights, pre-emption mechanisms, information covenants, and valuation safeguards for institutional co-investors.
+              </p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <img src="assets/team-partner-3.webp" alt="David Thorne">
+                  <span class="blog-card-author-name">David Thorne</span>
+                </div>
+                <button class="blog-read-btn">Read <i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Empty Search State -->
+          <div class="blog-no-results" id="blogNoResults">
+            <i class="fa-solid fa-book-open"></i>
+            <h3>No Matching Briefings Found</h3>
+            <p>Try modifying your keyword search or select a different practice category pill above.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3. EXECUTIVE RESEARCH PUBLICATIONS & COMPENDIUMS
+         ========================================== -->
+    <section class="publications-section" data-aos="fade-up" data-aos-duration="800">
+      <div class="container">
+        <div class="text-center" style="max-width: 780px; margin: 0 auto;">
+          <span class="section-subtitle" style="color: var(--gold-light);">PRACTICE COMPENDIUMS</span>
+          <h2 class="section-heading" style="color: var(--ivory);">Executive Briefings &amp; Annual Reports</h2>
+          <p class="section-desc" style="color: rgba(245,242,234,0.8);">
+            Authoritative, in-depth whitepapers prepared by Stackly senior practice leads for board directors, general counsel, and enterprise risk officers.
+          </p>
+        </div>
+
+        <div class="publications-grid">
+          <!-- Publication 1 -->
+          <div class="publication-card">
+            <div>
+              <div class="pub-badge-row">
+                <span class="pub-pill">M&amp;A Practice</span>
+                <span class="pub-pages"><i class="fa-regular fa-file-pdf"></i> 48 Pages</span>
+              </div>
+              <h3 class="pub-title">2026 Global M&amp;A and Foreign Investment Screening Compendium</h3>
+              <p class="pub-desc">
+                An executive analysis of multi-jurisdiction antitrust clearance hurdles, national security foreign direct investment (FDI) review thresholds, and reverse breakup fee benchmarks.
+              </p>
+              <div class="pub-topics">
+                <span><i class="fa-solid fa-check"></i> CFIUS &amp; EU FDI Regulation Mapping</span>
+                <span><i class="fa-solid fa-check"></i> Hell-or-High-Water Risk Allocation</span>
+                <span><i class="fa-solid fa-check"></i> Long-Stop Date Covenants</span>
+              </div>
+            </div>
+            <a href="404.html" class="btn btn-outline-gold" style="width: 100%; text-align: center;">
+              <i class="fa-solid fa-download"></i> Download Briefing
+            </a>
+          </div>
+
+          <!-- Publication 2 -->
+          <div class="publication-card">
+            <div>
+              <div class="pub-badge-row">
+                <span class="pub-pill">Regulatory &amp; IP</span>
+                <span class="pub-pages"><i class="fa-regular fa-file-pdf"></i> 36 Pages</span>
+              </div>
+              <h3 class="pub-title">Enterprise AI Governance &amp; Statutory Compliance Playbook</h3>
+              <p class="pub-desc">
+                A structured blueprint for board governance committees addressing foundation model integration, intellectual property infringement indemnity, and statutory algorithmic transparency.
+              </p>
+              <div class="pub-topics">
+                <span><i class="fa-solid fa-check"></i> Foundation Model Licensing Terms</span>
+                <span><i class="fa-solid fa-check"></i> Algorithmic Auditing Standards</span>
+                <span><i class="fa-solid fa-check"></i> Data Sovereignty &amp; Privacy Safeguards</span>
+              </div>
+            </div>
+            <a href="404.html" class="btn btn-outline-gold" style="width: 100%; text-align: center;">
+              <i class="fa-solid fa-download"></i> Download Briefing
+            </a>
+          </div>
+
+          <!-- Publication 3 -->
+          <div class="publication-card">
+            <div>
+              <div class="pub-badge-row">
+                <span class="pub-pill">Corporate Governance</span>
+                <span class="pub-pages"><i class="fa-regular fa-file-pdf"></i> 42 Pages</span>
+              </div>
+              <h3 class="pub-title">Corporate Governance &amp; Fiduciary Standards for Board Directors</h3>
+              <p class="pub-desc">
+                Essential risk management guidelines for corporate boards navigating shareholder derivative exposures, non-financial disclosure mandates, and audit committee oversight.
+              </p>
+              <div class="pub-topics">
+                <span><i class="fa-solid fa-check"></i> Fiduciary Standard Developments</span>
+                <span><i class="fa-solid fa-check"></i> Shareholder Activism Defense</span>
+                <span><i class="fa-solid fa-check"></i> D&amp;O Insurance Policy Audits</span>
+              </div>
+            </div>
+            <a href="404.html" class="btn btn-outline-gold" style="width: 100%; text-align: center;">
+              <i class="fa-solid fa-download"></i> Download Briefing
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. EDITORIAL STANDARDS & METHODOLOGY
+         ========================================== -->
+    <section class="editorial-standards-section" data-aos="fade-up" data-aos-duration="800">
+      <div class="container">
+        <div class="text-center" style="max-width: 740px; margin: 0 auto;">
+          <span class="section-subtitle">OUR EDITORIAL METHODOLOGY</span>
+          <h2 class="section-heading">Rigorous Legal Analysis, Tested Insight</h2>
+          <p class="section-desc">
+            Stackly legal intelligence briefings are authored exclusively by qualified corporate attorneys and senior management consultants.
+          </p>
+        </div>
+
+        <div class="standards-grid">
+          <div class="standard-card">
+            <div class="standard-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <h4>Statutory &amp; Precedent Verification</h4>
+            <p>Every briefing is cross-referenced against authoritative appellate decisions, statutory codes, and current regulatory guidance across relevant commercial jurisdictions.</p>
+          </div>
+          <div class="standard-card">
+            <div class="standard-icon"><i class="fa-solid fa-user-check"></i></div>
+            <h4>Senior Partner Peer Review</h4>
+            <p>All intelligence memos undergo multi-partner peer review to ensure that complex legal nuances translate into actionable, risk-managed commercial advice.</p>
+          </div>
+          <div class="standard-card">
+            <div class="standard-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h4>Practical Executive Applicability</h4>
+            <p>We eliminate speculative academic commentary, focusing strictly on clauses, covenants, timelines, and strategies that corporate leaders can immediately execute.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. NEWSLETTER BRIEFING SUBSCRIPTION
+         ========================================== -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-card">
+          <div class="newsletter-text">
+            <span class="section-subtitle" style="color: var(--gold-light);">MONTHLY LEGAL INTELLIGENCE</span>
+            <h3>Stay Ahead of Regulatory &amp; Corporate Law Shifts</h3>
+            <p>
+              Join executive counsel and enterprise leaders who receive our monthly curated briefings, statutory summaries, and cross-border commercial updates. No spam; unsubscribe anytime.
+            </p>
+          </div>
+          <div class="newsletter-form-box">
+            <form class="newsletter-form" id="newsletterForm" novalidate>
+              <div class="newsletter-input-group">
+                <input type="email" id="newsletterEmail" class="newsletter-email-input" placeholder="Enter corporate email...">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fa-solid fa-paper-plane"></i> Subscribe
+                </button>
+              </div>
+              <div class="newsletter-error-msg" style="color: #e53e3e; font-size: 0.8rem; margin-top: 8px; display: none; font-weight: 500;">
+                <i class="fa-solid fa-circle-exclamation"></i> Email is required
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. FINAL CTA
+         ========================================== -->
+    <section class="final-cta-section" style="background: var(--navy); padding: 80px 0; text-align: center; border-top: 1px solid rgba(176,141,87,0.3);">
+      <div class="container" style="max-width: 760px;">
+        <span class="section-subtitle" style="color: var(--gold-light); letter-spacing: 0.15em;">SENIOR LEGAL COUNSEL</span>
+        <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); color: var(--ivory); margin: 16px 0 20px;">
+          Your Next Strategic Decision Deserves Tested Guidance.
+        </h2>
+        <p style="color: rgba(245,242,234,0.85); font-size: 1.05rem; line-height: 1.7; margin-bottom: 32px;">
+          Whether structuring a complex cross-border contract, preparing a regulatory compliance audit, or navigating shareholder restructuring, Stackly provides senior partner oversight at every stage.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="404.html" class="btn btn-primary">
+            <i class="fa-solid fa-envelope"></i> CONTACT OUR PRACTICE
+          </a>
+          <a href="404.html" class="btn btn-secondary" style="color: var(--ivory); border-color: rgba(255,255,255,0.35);">
+            EXPLORE OUR SERVICES
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       6. INTERACTIVE ARTICLE READER MODAL
+       ========================================== -->
+  <div class="article-modal-overlay" id="articleModal">
+    <div class="article-modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close article">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="article-modal-media">
+        <img id="modalHeroImg" src="assets/hero-legal-office.webp" alt="Article Hero">
+      </div>
+      <div class="article-modal-content">
+        <span class="modal-category-tag" id="modalCategory">Corporate Governance</span>
+        <h1 class="modal-article-title" id="modalTitle">Article Title</h1>
+        
+        <div class="modal-article-meta">
+          <div class="author-chip">
+            <img id="modalAuthorImg" src="assets/team-partner-1.webp" alt="Author">
+            <div>
+              <div class="author-name" id="modalAuthorName" style="color: var(--navy);">Author Name</div>
+              <div class="author-role" id="modalAuthorRole" style="color: var(--text-light);">Author Role</div>
+            </div>
+          </div>
+          <div style="color: var(--text-light); font-size: 0.85rem; margin-left: auto;">
+            <span id="modalDate">November 3, 2026</span> • <span id="modalReadTime">6 min read</span>
+          </div>
+        </div>
+
+        <div class="modal-article-body" id="modalBody">
+          <!-- Dynamic article content injected via js/blog.js -->
+        </div>
+
+        <div class="modal-author-bio">
+          <img id="modalBioImg" src="assets/team-partner-1.webp" alt="Bio Avatar">
+          <div>
+            <div style="font-weight: 700; color: var(--navy); font-size: 0.95rem;" id="modalBioName">Author Name</div>
+            <div style="color: var(--gold); font-size: 0.8rem; margin-bottom: 4px;" id="modalBioRole">Partner Role</div>
+            <p style="font-size: 0.85rem; color: var(--text-light); line-height: 1.5; margin: 0;">
+              Advising multinational corporations, private equity funds, and emerging technology boards on high-stakes jurisprudence, governance, and contractual risk management.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       7. COMMON FOOTER (3 Balanced Columns)
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 12px;" aria-label="Stackly Legal &amp; Consulting">
+            <div class="brand-logo-wrap">
+              <img src="assets/logo.png" alt="Stackly" class="brand-logo-img">
+              <span class="brand-subtitle">Legal &amp; Consulting</span>
+            </div>
+          </a>
+          <p>
+            Stackly is an established corporate legal advisory and business consulting firm providing senior counsel across commercial law, contract drafting, regulatory compliance, and organizational strategy.
+          </p>
+          <div class="footer-socials">
+            <a href="404.html" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="footer-social-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="footer-social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Legal Services -->
+        <div class="footer-col">
+          <h4>Legal Services</h4>
+          <div class="footer-links">
+            <a href="Services.html#corporate"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Corporate Advisory</a>
+            <a href="Services.html#business"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Business Law</a>
+            <a href="Services.html#contracts"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Contract Drafting</a>
+            <a href="Services.html#employment"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Employment Law</a>
+            <a href="Services.html#ip"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Intellectual Property</a>
+            <a href="Services.html#disputes"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Dispute Resolution</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Quick Links (Blue Circle) -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Home</a>
+            <a href="About.html"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> About</a>
+            <a href="Services.html"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Services</a>
+            <a href="Blog.html"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Blog</a>
+            <a href="Contact.html"><i class="fa-solid fa-chevron-right" style="font-size: 0.6rem;"></i> Contact</a>
+          </div>
+        </div>
+
+        <!-- Col 4: Office Info & Hours -->
+        <div class="footer-col">
+          <h4>Office Information</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</div>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <div>1800789456</div>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <div>info@stackly.com</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 5: Stackly Map (Green Circle) -->
+        <div class="footer-col footer-col-map">
+          <h4>Our Location</h4>
+          <div class="footer-map-wrap">
+            <iframe 
+              src="https://maps.google.com/maps?q=11.6829566,78.1739798&hl=en&z=15&output=embed" 
+              width="100%" 
+              height="140" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Stackly Salem Map Location">
+            </iframe>
+            <a href="https://www.google.com/maps/place/Stackly/@11.6829566,78.1739798,17z/data=!3m1!4b1!4m6!3m5!1s0x3babefef7fd970bb:0xe11aef1a71994f9!8m2!3d11.6829566!4d78.1739798!16s%2Fg%2F11l660s35r?entry=ttu&g_ep=EgoyMDI2MDcwNy4wIKXMDSoASAFQAw%3D%3D" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="footer-map-link">
+              <i class="fa-solid fa-location-dot"></i> Open in Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Stackly Legal &amp; Consulting Firm. All Rights Reserved.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms &amp; Conditions</a>
+          <a href="404.html">Regulatory Disclosures</a>
+          <a href="404.html">Cookie Preferences</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/blog.js"></script>
+</body>
+</html>

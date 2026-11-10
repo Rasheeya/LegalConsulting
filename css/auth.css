@@ -1,0 +1,334 @@
+/* ==========================================================================
+   LEGAL & CONSULTING — AUTH PAGES STYLES (auth.css)
+   Split-screen layout for Login.html and Signup.html
+   ========================================================================== */
+
+.auth-wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  background-color: var(--white);
+}
+
+/* Left Hero Visual */
+.auth-visual {
+  position: relative;
+  background-color: var(--navy-dark);
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.auth-visual-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.auth-visual-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35) contrast(1.1);
+}
+
+.auth-visual-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(7, 16, 23, 0.94) 0%, rgba(20, 43, 59, 0.75) 60%, rgba(11, 25, 35, 0.95) 100%);
+  z-index: 2;
+}
+
+.auth-visual-content {
+  position: relative;
+  z-index: 3;
+}
+
+.auth-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ivory);
+  text-decoration: none;
+}
+
+.auth-quote-box {
+  position: relative;
+  z-index: 3;
+  max-width: 460px;
+}
+
+.auth-quote-text {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--ivory);
+  line-height: 1.35;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.auth-quote-author {
+  font-size: 0.85rem;
+  color: var(--gold-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.auth-visual-footer {
+  position: relative;
+  z-index: 3;
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+/* Right Form Container */
+.auth-form-side {
+  padding: 50px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.auth-top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.back-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--navy);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: color var(--transition-fast);
+}
+
+.back-home-link:hover {
+  color: var(--gold);
+}
+
+.auth-header {
+  margin-bottom: 28px;
+}
+
+.auth-title {
+  font-size: 2.3rem;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.auth-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+/* Role Toggle */
+.role-toggle-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--ivory);
+  padding: 4px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  border: 1px solid var(--ivory-border);
+}
+
+.role-toggle-btn {
+  padding: 10px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 4px;
+  color: var(--navy);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  background: transparent;
+}
+
+.role-toggle-btn.active {
+  background: var(--navy);
+  color: var(--gold);
+  box-shadow: 0 2px 8px rgba(20, 43, 59, 0.15);
+}
+
+/* Quick Demo Autofill Pills */
+.demo-credentials-box {
+  background: var(--ivory-light);
+  border: 1px dashed var(--gold);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+}
+
+.demo-cred-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.demo-cred-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.demo-pills-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.demo-pill-btn {
+  padding: 5px 12px;
+  background: var(--white);
+  border: 1px solid #c9b48c;
+  color: var(--navy);
+  font-size: 0.75rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.demo-pill-btn:hover {
+  background: var(--gold);
+  color: var(--navy-dark);
+}
+
+/* Password Input with show/hide toggle */
+.password-input-wrap {
+  position: relative;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.password-toggle-btn:hover {
+  color: var(--navy);
+}
+
+/* Form Helper Row */
+.form-helper-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  font-size: 0.82rem;
+}
+
+.remember-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-dark);
+  cursor: pointer;
+}
+
+.forgot-pwd-link {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.forgot-pwd-link:hover {
+  text-decoration: underline;
+}
+
+.auth-bottom-switch {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-top: 24px;
+}
+
+.auth-bottom-switch a {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.auth-bottom-switch a:hover {
+  color: var(--gold);
+}
+
+.auth-disclaimer {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  line-height: 1.4;
+  margin-top: 28px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .auth-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .auth-visual {
+    display: none;
+  }
+  .auth-form-side {
+    padding: 40px 24px;
+    max-height: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .auth-form-side {
+    padding: 32px 18px;
+  }
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .auth-form-side {
+    padding: 24px 14px;
+  }
+  .auth-title {
+    font-size: 1.6rem;
+  }
+  .role-toggle-btn {
+    font-size: 0.78rem;
+    padding: 8px 6px;
+  }
+}
+
+@media (max-width: 320px) {
+  .auth-form-side {
+    padding: 20px 10px;
+  }
+  .auth-title {
+    font-size: 1.45rem;
+  }
+}
