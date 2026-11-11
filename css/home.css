@@ -1059,6 +1059,23 @@
   .hero-actions .btn {
     width: 100%;
   }
+  .hero-floating-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 18px;
+    box-sizing: border-box;
+  }
+  .intro-badge-stat {
+    right: 0;
+    bottom: -16px;
+    padding: 14px 18px;
+    max-width: calc(100% - 24px);
+    box-sizing: border-box;
+  }
+  .intro-image-frame {
+    right: -6px;
+    bottom: -6px;
+  }
   .services-grid-3,
   .services-grid-4,
   .features-grid,

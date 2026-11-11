@@ -61,13 +61,15 @@
         const viewId = item.getAttribute('data-view');
         switchView(viewId);
 
-        // On mobile, close sidebar automatically
-        const sidebar = document.querySelector('.dash-sidebar');
-        const overlay = document.querySelector('.dash-sidebar-overlay');
-        if (sidebar && sidebar.classList.contains('open')) {
-          sidebar.classList.remove('open');
-          if (overlay) overlay.classList.remove('visible');
-          document.body.classList.remove('dash-sidebar-open');
+        // On mobile, close sidebar automatically with clean background unlock
+        if (window.DashboardBase && window.DashboardBase.closeSidebar) {
+          window.DashboardBase.closeSidebar();
+        } else {
+          const sidebar = document.querySelector('.dash-sidebar');
+          if (sidebar && sidebar.classList.contains('open')) {
+            const closeBtn = document.querySelector('.dash-sidebar-close');
+            if (closeBtn) closeBtn.click();
+          }
         }
       });
     });
@@ -106,33 +108,117 @@
     }
   }
 
-  // Mobile off-canvas toggle
+  // Mobile off-canvas toggle (Guaranteed 100% Edge-to-Edge Fullscreen on all mobile screens with zero background scroll)
   function initMobileSidebar() {
     const toggleBtn = document.querySelector('.dash-sidebar-toggle');
     const closeBtn = document.querySelector('.dash-sidebar-close');
     const sidebar = document.querySelector('.dash-sidebar');
     const overlay = document.querySelector('.dash-sidebar-overlay');
 
-    if (toggleBtn && sidebar) {
-      toggleBtn.addEventListener('click', () => {
-        sidebar.classList.add('open');
-        if (overlay) overlay.classList.add('visible');
-        document.body.classList.add('dash-sidebar-open');
-      });
-    }
-
-    const closeSidebar = () => {
-      if (sidebar) sidebar.classList.remove('open');
-      if (overlay) overlay.classList.remove('visible');
-      document.body.classList.remove('dash-sidebar-open');
+    const lockDashboardBackgroundScroll = () => {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      document.body.dataset.lockScrollY = scrollY.toString();
+      document.documentElement.classList.add('dash-sidebar-open');
+      document.body.classList.add('dash-sidebar-open');
+      document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.overscrollBehavior = 'none';
+      document.body.style.overflow = 'hidden';
+      document.body.style.overscrollBehavior = 'none';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
     };
 
-    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
-    if (overlay) overlay.addEventListener('click', closeSidebar);
+    const unlockDashboardBackgroundScroll = () => {
+      const savedY = parseInt(document.body.dataset.lockScrollY || '0', 10);
+      delete document.body.dataset.lockScrollY;
+      document.documentElement.classList.remove('dash-sidebar-open');
+      document.body.classList.remove('dash-sidebar-open');
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.overscrollBehavior = '';
+      document.body.style.overflow = '';
+      document.body.style.overscrollBehavior = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+      window.scrollTo({ top: savedY, behavior: 'instant' });
+    };
+
+    const applySidebarFullscreen = (open) => {
+      if (open) {
+        sidebar.classList.add('open');
+        if (overlay) overlay.classList.add('visible');
+        lockDashboardBackgroundScroll();
+
+        if (window.innerWidth <= 1024) {
+          sidebar.style.setProperty('width', '100vw', 'important');
+          sidebar.style.setProperty('max-width', '100vw', 'important');
+          sidebar.style.setProperty('min-width', '100vw', 'important');
+          sidebar.style.setProperty('left', '0px', 'important');
+          sidebar.style.setProperty('right', '0px', 'important');
+          sidebar.style.setProperty('top', '0px', 'important');
+          sidebar.style.setProperty('bottom', '0px', 'important');
+          sidebar.style.setProperty('height', '100vh', 'important');
+          sidebar.style.setProperty('height', '100dvh', 'important');
+          sidebar.style.setProperty('display', 'flex', 'important');
+          sidebar.style.setProperty('flex-direction', 'column', 'important');
+          sidebar.style.setProperty('position', 'fixed', 'important');
+          sidebar.style.setProperty('z-index', '1200', 'important');
+          sidebar.style.setProperty('box-sizing', 'border-box', 'important');
+        }
+      } else {
+        sidebar.classList.remove('open');
+        if (overlay) overlay.classList.remove('visible');
+        unlockDashboardBackgroundScroll();
+        sidebar.style.cssText = '';
+      }
+    };
+
+    // Expose closeSidebar on DashboardBase
+    if (window.DashboardBase) {
+      window.DashboardBase.closeSidebar = () => applySidebarFullscreen(false);
+    }
+
+    if (toggleBtn && sidebar) {
+      toggleBtn.addEventListener('click', () => applySidebarFullscreen(true));
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', () => applySidebarFullscreen(false));
+    if (overlay) overlay.addEventListener('click', () => applySidebarFullscreen(false));
+
+    // Prevent background gesture leaks (wheel & touchmove) while dashboard sidebar is open
+    window.addEventListener('wheel', (e) => {
+      if (document.body.classList.contains('dash-sidebar-open')) {
+        if (!e.target.closest('.dash-sidebar-menu')) {
+          if (e.cancelable) e.preventDefault();
+        }
+      }
+    }, { passive: false });
+
+    window.addEventListener('touchmove', (e) => {
+      if (document.body.classList.contains('dash-sidebar-open')) {
+        if (!e.target.closest('.dash-sidebar-menu')) {
+          if (e.cancelable) e.preventDefault();
+        }
+      }
+    }, { passive: false });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && sidebar && sidebar.classList.contains('open')) {
-        closeSidebar();
+        applySidebarFullscreen(false);
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024) {
+        sidebar.style.cssText = '';
+        if (sidebar.classList.contains('open')) {
+          applySidebarFullscreen(false);
+        }
       }
     });
   }
