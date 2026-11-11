@@ -1052,18 +1052,52 @@
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    min-height: auto !important;
+    padding: 100px 0 40px !important;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    min-height: auto !important;
+    padding: 10px 0 !important;
+  }
+  .hero-badge-tag {
+    margin-bottom: 16px !important;
+  }
+  .hero-title {
+    margin-bottom: 14px !important;
+  }
+  .hero-subtitle {
+    margin-bottom: 18px !important;
+    font-size: 0.98rem !important;
+    line-height: 1.55 !important;
+  }
   .hero-actions {
-    flex-direction: column;
-    width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+    margin-bottom: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   .hero-actions .btn {
-    width: 100%;
+    width: 100% !important;
+    display: inline-flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    padding: 12px 20px !important;
+    font-size: 0.88rem !important;
   }
   .hero-floating-card {
-    width: 100%;
-    max-width: 100%;
-    padding: 24px 18px;
-    box-sizing: border-box;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 22px 18px !important;
+    box-sizing: border-box !important;
+    margin-top: 6px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   .intro-badge-stat {
     right: 0;
@@ -1100,13 +1134,31 @@
 
 @media (max-width: 425px) {
   .hero-section {
-    padding: 100px 0 50px;
+    padding: 85px 0 30px !important;
+    min-height: auto !important;
+  }
+  .hero-grid {
+    gap: 16px !important;
+    padding: 0 !important;
   }
   .hero-title {
-    font-size: 2rem !important;
+    font-size: 1.9rem !important;
+    margin-bottom: 12px !important;
   }
   .hero-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.92rem !important;
+    margin-bottom: 16px !important;
+  }
+  .hero-actions {
+    gap: 8px !important;
+  }
+  .hero-actions .btn {
+    padding: 11px 16px !important;
+    font-size: 0.84rem !important;
+  }
+  .hero-floating-card {
+    padding: 18px 14px !important;
+    margin-top: 6px !important;
   }
   .hero-briefing-card {
     padding: 24px 16px;

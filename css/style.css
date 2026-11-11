@@ -1344,10 +1344,10 @@ html.aos-init [data-aos="fade-left"]:not(.aos-animate) {
 
 .modal-backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
   background: rgba(7, 16, 23, 0.75);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -1359,6 +1359,9 @@ html.aos-init [data-aos="fade-left"]:not(.aos-animate) {
   visibility: hidden;
   transition: all var(--transition-normal);
   padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .modal-backdrop.open {
@@ -1372,11 +1375,16 @@ html.aos-init [data-aos="fade-left"]:not(.aos-animate) {
   width: 100%;
   max-width: 620px;
   max-height: 90vh;
+  max-height: 90dvh;
   overflow-y: auto;
+  overflow-x: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
   border-top: 4px solid var(--gold);
   transform: translateY(20px) scale(0.98);
   transition: all var(--transition-normal);
+  box-sizing: border-box;
+  margin: auto;
+  padding: 0;
 }
 
 .modal-backdrop.open .modal-card {
@@ -1425,6 +1433,13 @@ html.aos-init [data-aos="fade-left"]:not(.aos-animate) {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
+}
+
+.modal-form-row,
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
 /* Forms general */
@@ -1624,14 +1639,80 @@ html.aos-init [data-aos="fade-left"]:not(.aos-animate) {
   .newsletter-card {
     padding: 30px 20px;
   }
+  .modal-backdrop {
+    padding: 16px;
+  }
   .modal-card {
-    width: 94%;
-    margin: 16px auto;
-    padding: 24px 20px;
+    width: 100%;
+    max-width: 560px;
+    margin: auto;
+    padding: 0;
+  }
+  .modal-header {
+    padding: 18px 20px;
+  }
+  .modal-body {
+    padding: 22px 20px;
+  }
+  .modal-footer {
+    padding: 16px 20px;
   }
 }
 
 @media (max-width: 600px) {
+  .modal-backdrop {
+    padding: 10px;
+    align-items: center;
+  }
+  .modal-card {
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    padding: 0;
+    max-height: 94vh;
+    max-height: 94dvh;
+    border-radius: 6px;
+  }
+  .modal-header {
+    padding: 14px 16px;
+  }
+  .modal-title {
+    font-size: 1.25rem;
+  }
+  .modal-body {
+    padding: 16px 14px;
+  }
+  .modal-footer {
+    padding: 12px 14px;
+    flex-direction: column-reverse;
+    gap: 8px;
+  }
+  .modal-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .modal-form-row,
+  .form-grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .form-group {
+    margin-bottom: 14px;
+  }
+  .form-label {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+  .form-control {
+    padding: 10px 12px;
+    font-size: 0.88rem;
+    box-sizing: border-box;
+  }
+  .form-error-msg {
+    font-size: 0.74rem;
+    margin-top: 4px;
+    line-height: 1.35;
+  }
   .footer-top {
     grid-template-columns: 1fr;
     gap: 36px;

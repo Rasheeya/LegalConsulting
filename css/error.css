@@ -4,14 +4,18 @@
 
 .error-page-wrapper {
   min-height: 100vh;
+  min-height: 100dvh;
   background-color: var(--navy-dark);
   color: var(--ivory);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   position: relative;
-  overflow: hidden;
-  padding: 40px 24px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 24px 20px 20px;
+  box-sizing: border-box;
 }
 
 .error-bg-glow {
@@ -19,9 +23,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
+  width: 550px;
   max-width: 90vw;
-  height: 600px;
+  height: 550px;
   max-height: 90vw;
   background: radial-gradient(circle, rgba(176, 141, 87, 0.12) 0%, rgba(20, 43, 59, 0) 70%);
   pointer-events: none;
@@ -36,7 +40,8 @@
   align-items: center;
   text-align: center;
   width: 100%;
-  padding-bottom: 10px;
+  padding-bottom: 6px;
+  flex-shrink: 0;
 }
 
 .error-header .brand-logo {
@@ -47,66 +52,71 @@
 .error-main-content {
   position: relative;
   z-index: 2;
-  max-width: 720px;
-  margin: 0 auto;
+  max-width: 680px;
+  width: 100%;
+  margin: auto 0;
   text-align: center;
-  padding: 40px 0;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   animation: errorFadeIn 0.6s ease-out both;
 }
 
 .error-illustration {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 30px;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 16px;
   border: 2px solid var(--gold);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(176, 141, 87, 0.08);
-  box-shadow: 0 0 40px rgba(176, 141, 87, 0.25);
+  box-shadow: 0 0 30px rgba(176, 141, 87, 0.22);
   animation: emblemFloat 4s ease-in-out infinite;
 }
 
 .error-illustration i {
-  font-size: 4rem;
+  font-size: 2.8rem;
   color: var(--gold);
 }
 
 .error-code {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 10vw, 7.5rem);
+  font-size: clamp(3.4rem, 8.5vw, 6rem);
   font-weight: 700;
   color: var(--gold);
   line-height: 1;
-  margin-bottom: 8px;
-  letter-spacing: -0.04em;
+  margin-bottom: 6px;
+  letter-spacing: -0.03em;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .error-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.65rem, 3.8vw, 2.5rem);
   color: var(--ivory);
-  margin-bottom: 16px;
-  line-height: 1.2;
+  margin-bottom: 12px;
+  line-height: 1.22;
 }
 
 .error-desc {
-  font-size: 1.1rem;
+  font-size: 0.98rem;
   color: var(--ivory-dark);
-  max-width: 540px;
-  margin: 0 auto 36px;
-  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
 }
 
 .error-actions {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 36px;
+  margin-top: 18px;
 }
 
 .error-actions .btn {
@@ -160,12 +170,15 @@
   text-align: center;
   font-size: 0.8rem;
   color: var(--text-light);
+  margin-top: 0;
+  padding: 16px 0 8px;
+  flex-shrink: 0;
 }
 
 @keyframes errorFadeIn {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -175,43 +188,111 @@
 
 @keyframes emblemFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-6px); }
 }
 
 @media (max-width: 768px) {
   .error-page-wrapper {
-    padding: 30px 20px;
+    padding: 20px 16px 16px;
+    justify-content: space-between;
+  }
+  .error-header {
+    padding-bottom: 4px;
+    margin-bottom: 0;
+  }
+  .error-main-content {
+    margin: auto 0;
+    padding: 8px 0;
+    width: 100%;
   }
   .error-illustration {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 24px;
+    width: 76px;
+    height: 76px;
+    margin-bottom: 12px;
   }
   .error-illustration i {
+    font-size: 2rem;
+  }
+  .error-code {
     font-size: 3.2rem;
+    margin-bottom: 4px;
+  }
+  .error-title {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  .error-desc {
+    font-size: 0.9rem;
+    margin-bottom: 14px;
+  }
+  .error-actions {
+    margin-top: 12px;
+    gap: 12px;
+  }
+  .error-footer {
+    margin-top: 0;
+    padding: 12px 0 6px;
   }
 }
 
 @media (max-width: 600px) {
   .error-page-wrapper {
-    padding: 24px 16px;
+    padding: 16px 16px 14px;
+    justify-content: space-between;
+  }
+  .error-header {
+    padding-bottom: 4px;
+    margin-bottom: 0;
+  }
+  .error-header .brand-logo-img {
+    height: 32px;
+  }
+  .error-main-content {
+    margin: auto 0;
+    padding: 6px 0;
+    width: 100%;
   }
   .error-illustration {
-    width: 96px;
-    height: 96px;
-    margin-bottom: 20px;
+    width: 66px;
+    height: 66px;
+    margin: 0 auto 10px;
   }
   .error-illustration i {
-    font-size: 2.5rem;
+    font-size: 1.7rem;
+  }
+  .error-code {
+    font-size: 2.7rem;
+    margin-bottom: 4px;
+  }
+  .error-title {
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .error-desc {
+    font-size: 0.86rem;
+    margin-bottom: 12px;
+    line-height: 1.45;
+    max-width: 380px;
   }
   .error-actions {
+    margin-top: 8px;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     width: 100%;
+    align-items: center;
   }
   .error-actions .btn {
     width: 100%;
-    max-width: 280px;
+    max-width: 260px;
     min-width: unset;
+    padding: 11px 20px;
+    font-size: 0.85rem;
+    margin: 0 auto;
+  }
+  .error-footer {
+    padding: 10px 0 4px;
+    font-size: 0.76rem;
+    margin-top: 0;
   }
 }

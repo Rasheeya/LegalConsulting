@@ -694,6 +694,7 @@
   function initQuickBookingForm() {
     const form = document.getElementById('quickBookingForm');
     if (!form) return;
+    form.setAttribute('novalidate', 'true');
 
     let submittedOnce = false;
 
@@ -899,6 +900,11 @@
 
       // 2. EXEMPT: Footer (footer links, social, map, policies)
       if (target.closest('.site-footer')) {
+        return;
+      }
+
+      // 2b. EXEMPT: Google Maps links & Map section buttons
+      if ((target.href && (target.href.includes('maps.google') || target.href.includes('google.com/maps'))) || target.closest('.map-section') || target.closest('.footer-map-wrap') || target.classList.contains('footer-map-link')) {
         return;
       }
 

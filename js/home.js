@@ -16,14 +16,23 @@
           gsap.registerPlugin(ScrollTrigger);
         }
 
-        // Hero timeline
-        const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        // Hero timeline (desktop only, to ensure zero rendering delays on mobile)
+        if (window.innerWidth > 768) {
+          const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-        heroTl.from('.hero-badge-tag', { opacity: 0, y: -20, duration: 0.8, delay: 0.2 })
-          .from('.hero-title', { opacity: 0, y: 30, duration: 1 }, '-=0.5')
-          .from('.hero-subtitle', { opacity: 0, y: 20, duration: 0.8 }, '-=0.6')
-          .from('.hero-actions .btn', { opacity: 0, y: 20, stagger: 0.15, duration: 0.7 }, '-=0.5')
-          .from('.hero-floating-card', { opacity: 0, x: 40, duration: 1 }, '-=0.7');
+          heroTl.from('.hero-badge-tag', { opacity: 0, y: -20, duration: 0.8, delay: 0.2 })
+            .from('.hero-title', { opacity: 0, y: 30, duration: 1 }, '-=0.5')
+            .from('.hero-subtitle', { opacity: 0, y: 20, duration: 0.8 }, '-=0.6')
+            .from('.hero-actions .btn', { opacity: 0, y: 20, stagger: 0.15, duration: 0.7 }, '-=0.5')
+            .from('.hero-floating-card', { opacity: 0, x: 40, duration: 1 }, '-=0.7');
+        } else {
+          // Mobile: ensure all elements are immediately 100% visible with zero empty gaps
+          gsap.set(['.hero-badge-tag', '.hero-title', '.hero-subtitle', '.hero-actions', '.hero-actions .btn', '.hero-floating-card'], {
+            opacity: 1,
+            visibility: 'visible',
+            clearProps: 'opacity,transform,visibility'
+          });
+        }
 
         // Scroll reveals for service cards
         if (typeof ScrollTrigger !== 'undefined') {

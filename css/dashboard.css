@@ -1422,3 +1422,26 @@ body {
   cursor: pointer;
 }
 
+.dash-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.dash-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .dash-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .dash-grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
