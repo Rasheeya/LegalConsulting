@@ -805,6 +805,11 @@
       const target = e.target.closest('a, button, [role="button"]');
       if (!target) return;
 
+      // 0. EXEMPT: FAQ Accordion items & headers
+      if (target.closest('.faq-container') || target.closest('.faq-item') || target.closest('.faq-header')) {
+        return;
+      }
+
       // 1. EXEMPT: Navigation Bar & Mobile Off-canvas Drawer (navlinks)
       if (target.closest('.site-header') || target.closest('.navbar-container') || target.closest('.mobile-nav') || target.closest('.hamburger') || target.closest('.mobile-nav-overlay')) {
         return;
@@ -838,6 +843,62 @@
   }
 
   // ==========================================
+  // UNIVERSAL FAQ ACCORDION INTERACTION
+  // ==========================================
+  let faqAccordionInitialized = false;
+  function initFaqAccordion() {
+    if (faqAccordionInitialized) return;
+    faqAccordionInitialized = true;
+
+    // Accessibility attributes
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const header = item.querySelector('.faq-header');
+      if (header) {
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', item.classList.contains('active') ? 'true' : 'false');
+      }
+    });
+
+    // Delegated click handler on document: 100% reliable across browsers
+    document.addEventListener('click', (e) => {
+      const header = e.target.closest('.faq-header');
+      const item = e.target.closest('.faq-item');
+      if (!header && !item) return;
+
+      const targetItem = header ? header.closest('.faq-item') : item;
+      if (!targetItem) return;
+
+      // If clicked inside the body of an already-open item, do not collapse (allows text selection)
+      if (!header && e.target.closest('.faq-body')) return;
+
+      e.preventDefault();
+
+      const targetHeader = targetItem.querySelector('.faq-header');
+      const isCurrentlyActive = targetItem.classList.contains('active');
+
+      if (isCurrentlyActive) {
+        targetItem.classList.remove('active');
+        if (targetHeader) targetHeader.setAttribute('aria-expanded', 'false');
+      } else {
+        targetItem.classList.add('active');
+        if (targetHeader) targetHeader.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Keyboard support: Enter or Space toggles focused FAQ
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const header = document.activeElement ? document.activeElement.closest('.faq-header') : null;
+        if (header) {
+          e.preventDefault();
+          header.click();
+        }
+      }
+    });
+  }
+
+  // ==========================================
   // STRICT POPUP ALERT SUPPRESSION (Website-wide)
   // Ensures NO browser popup alerts (alert, confirm, prompt) appear
   // ==========================================
@@ -864,11 +925,12 @@
     closeModal,
     escapeHTML,
     getCurrentUser,
-    initLocalStorage
+    initLocalStorage,
+    initFaqAccordion
   };
 
-  // Run initializers on DOM load
-  document.addEventListener('DOMContentLoaded', () => {
+  // Run initializers on DOM load (with immediate fallback if already ready)
+  function initApp() {
     initLocalStorage();
     initPreloader();
     initAOS();
@@ -876,7 +938,14 @@
     initModals();
     initQuickBookingForm();
     initNewsletterForms();
+    initFaqAccordion();
     initContent404Redirection();
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+  } else {
+    initApp();
+  }
 
 })();

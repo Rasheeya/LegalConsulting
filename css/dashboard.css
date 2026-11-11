@@ -1261,3 +1261,34 @@
 .table-responsive::-webkit-scrollbar-thumb:hover {
   background: var(--gold);
 }
+
+/* ==========================================================================
+   INTERACTIVE POINTER CURSOR FOR NON-SIDEBAR BUTTONS, ICONS & LINKS
+   ========================================================================== */
+.dash-main button,
+.dash-main a,
+.dash-main i,
+.dash-main svg,
+.dash-main [class*="fa-"],
+.dash-main [class*="-icon"],
+.dash-main .kpi-icon,
+.dash-main .kpi-icon-box,
+.dash-main .rec-service-icon,
+.dash-main .service-admin-icon,
+.dash-main .dash-date-badge,
+.dash-main .dash-notif-btn,
+.dash-main .notif-badge-dot,
+.dash-main .dash-profile-pill,
+.dash-main .dash-profile-avatar,
+.dash-main .node-dot,
+.dash-main input[type="submit"],
+.dash-main input[type="button"],
+.dash-main [role="button"],
+.dash-main .btn,
+.modal-backdrop button,
+.modal-backdrop a,
+.modal-backdrop i,
+.modal-backdrop [data-dismiss="modal"] {
+  cursor: pointer;
+}
+

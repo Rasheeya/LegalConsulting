@@ -620,6 +620,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 24px;
+  align-items: stretch;
 }
 
 .team-card {
@@ -629,6 +630,9 @@
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-light);
   transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .team-card:hover {
@@ -641,13 +645,16 @@
   position: relative;
   height: 260px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .team-card-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   transition: transform var(--transition-slow);
+  display: block;
 }
 
 .team-card:hover .team-card-media img {
@@ -655,7 +662,10 @@
 }
 
 .team-card-body {
-  padding: 20px 18px;
+  padding: 20px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .team-member-name {
@@ -663,6 +673,7 @@
   font-size: 1.25rem;
   color: var(--navy);
   margin-bottom: 4px;
+  line-height: 1.3;
 }
 
 .team-member-role {
@@ -672,23 +683,32 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 10px;
+  min-height: 2.4em;
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.25;
 }
 
 .team-member-bio {
   font-size: 0.78rem;
   color: var(--text-muted);
   line-height: 1.5;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  flex-grow: 1;
 }
 
 .team-member-badge {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   background: var(--ivory);
-  padding: 4px 8px;
+  padding: 5px 10px;
   border-radius: 4px;
   color: var(--navy);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-weight: 500;
+  margin-top: auto;
+  align-self: flex-start;
+  border: 1px solid rgba(176, 141, 87, 0.2);
 }
 
 /* ==========================================================================
@@ -919,6 +939,11 @@
   cursor: pointer;
   background: transparent;
   user-select: none;
+  transition: background var(--transition-fast);
+}
+
+.faq-header:hover {
+  background: rgba(176, 141, 87, 0.05);
 }
 
 .faq-question {
@@ -927,19 +952,26 @@
   font-weight: 600;
   color: var(--navy);
   margin: 0;
+  pointer-events: none;
 }
 
 .faq-toggle-icon {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--ivory);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--navy);
-  font-size: 0.8rem;
-  transition: transform var(--transition-normal), background var(--transition-normal);
+  font-size: 0.82rem;
+  transition: transform var(--transition-normal), background var(--transition-normal), color var(--transition-normal);
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.faq-header:hover .faq-toggle-icon {
+  background: rgba(176, 141, 87, 0.2);
 }
 
 .faq-item.active .faq-toggle-icon {
@@ -956,7 +988,7 @@
 }
 
 .faq-item.active .faq-body {
-  max-height: 300px;
+  max-height: 600px;
   padding: 0 28px 24px;
 }
 
@@ -967,61 +999,8 @@
 }
 
 /* ==========================================================================
-   Section 13: Final CTA
+   Section 13: Final CTA (Defined globally in style.css for site-wide consistency)
    ========================================================================== */
-.cta-banner-wrapper {
-  position: relative;
-  background-color: var(--navy-dark);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  border: 2px solid var(--gold);
-}
-
-.cta-banner-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.cta-banner-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.28);
-}
-
-.cta-banner-content {
-  position: relative;
-  z-index: 2;
-  padding: 80px 48px;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.cta-banner-title {
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  color: var(--ivory);
-  margin-bottom: 20px;
-}
-
-.cta-banner-desc {
-  font-size: 1.1rem;
-  color: var(--ivory-dark);
-  margin-bottom: 36px;
-  line-height: 1.6;
-}
-
-.cta-banner-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
 
 /* ==========================================================================
    Responsive Adaptations (home.css)

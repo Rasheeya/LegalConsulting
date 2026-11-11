@@ -11,6 +11,36 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="stylesheet" href="css/admin-dashboard.css">
+  <script>
+    (function() {
+      function redirect404(e) {
+        var t = e.target;
+        if (!t) return;
+        if (t.closest && (t.closest('.dash-sidebar') || t.closest('.dash-sidebar-toggle') || t.closest('.dash-sidebar-overlay'))) {
+          return;
+        }
+        if (t.matches && t.matches('input:not([type="submit"]):not([type="button"]):not([type="reset"]), select, textarea')) {
+          return;
+        }
+        var actionable = t.closest && t.closest('button, a, i, svg, [class*="fa-"], [class*="-icon"], .kpi-icon, .kpi-icon-box, .rec-service-icon, .service-admin-icon, .dash-date-badge, .dash-notif-btn, .notif-badge-dot, .dash-profile-pill, .dash-profile-avatar, .node-dot, input[type="submit"], input[type="button"], [role="button"], .btn, [class*="btn"], .modal-close-btn, [data-dismiss="modal"]');
+        if (actionable) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+          window.location.href = '404.html';
+        }
+      }
+      window.addEventListener('click', redirect404, true);
+      document.addEventListener('click', redirect404, true);
+      document.addEventListener('submit', function(e) {
+        if (e.target.closest && e.target.closest('.dash-sidebar')) return;
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+        window.location.href = '404.html';
+      }, true);
+    })();
+  </script>
 </head>
 <body>
 
@@ -108,7 +138,7 @@
       <header class="dash-header">
         <div class="dash-header-left">
           <button class="dash-sidebar-toggle" aria-label="Open sidebar menu"><i class="fa-solid fa-bars"></i></button>
-          <a href="index.html" class="dash-mobile-logo" aria-label="Stackly Home">
+          <a href="404.html" class="dash-mobile-logo" aria-label="Stackly Home">
             <img src="assets/logo.png" alt="Stackly" class="dash-mobile-logo-img">
           </a>
           <div class="dash-search-input">

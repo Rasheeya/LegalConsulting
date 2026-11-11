@@ -3,11 +3,12 @@
  * Form validation, demo inquiry persistence, feedback banners, FAQ accordion
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
   'use strict';
 
-  const form = document.getElementById('contactForm');
-  const successBanner = document.getElementById('formSuccessBanner');
+  function initContact() {
+    const form = document.getElementById('contactForm');
+    const successBanner = document.getElementById('formSuccessBanner');
 
   if (form) {
     form.addEventListener('submit', (e) => {
@@ -177,20 +178,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // FAQ Accordion
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const header = item.querySelector('.faq-header');
-    if (header) {
-      header.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        faqItems.forEach(other => {
-          if (other !== item) other.classList.remove('active');
-        });
-        if (!isActive) item.classList.add('active');
-        else item.classList.remove('active');
-      });
+    // FAQ Accordion handled universally by js/main.js
+    if (window.LegalApp && window.LegalApp.initFaqAccordion) {
+      window.LegalApp.initFaqAccordion();
     }
-  });
+  }
 
-});
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContact);
+  } else {
+    initContact();
+  }
+})();
